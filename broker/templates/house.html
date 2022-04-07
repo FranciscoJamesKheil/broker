@@ -1,0 +1,483 @@
+{% extends "base.html" %} {% block title %}House Form{% endblock %} {% block
+headtype %}header{% endblock%}
+{% block icon%}far fa-store-alt{% endblock%}
+{%block predict%}filter:grayscale(0){%endblock%}
+{% block icon1 %}fa fa-calculator{%endblock%}
+{% block icon2 %}far fa-user-circle{%endblock%}
+{% block content %}
+
+            {%if user.email == "admin@gmail.com"%}
+              <script>
+                window.location.href = "/logout";
+              </script>
+            {%endif%}
+
+<link href="../static/css/app.css" rel="stylesheet"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+<!-- ======= Portfolio Section ======= -->
+<div class="det">
+    <section class="div-container">
+      <div class="container col-lg-10" id="form-section">
+        <a href="/predict"><i class="bi bi-chevron-left"></i> Back House & Lot</a>
+        <br>
+          <!--House Price-->
+                <form method="post" action="/predict_house_price" class="col-lg-12" id="predHF">
+                    <div class="fields" id="predHL">
+                      <div class="p-head"
+                        data-aos="fade-up">
+                        <div class="fields">
+                          <h3>Real Property Field Appraisal & Assessment Sheet - House | Building</h3>
+                          <p>Make your property price get predict by filling up the data.</p>
+                          <i>Note: Choices are fixed.</i> <br>
+                          <i>Note: <font color="red">The price prediction may not work, if you've chose [others], No prediciton available.</font></i>
+                        </div>
+                        <img src="../static/img/on_system/Delivery address-rafiki.png" alt="" />
+                      </div>
+                      <hr>
+                      <div class="panel-body">
+                        <div id="address">
+                          <div class="row">
+                              <h5>Land Reference</h5>
+                            <div class="col-md-6">
+                              <label class="control-label">Barangay :</label>
+                              <select class="form-select form-select-md" onchange="changeFuncBrgy()" name="brgy" id="uiBrgy" required>
+                                <option value="" disabled="disabled" selected="selected">
+                                  Choose Option
+                                </option>
+                                <option value="canelar">Canelar</option>
+                                <option value="divisoria">Divisoria</option>
+                                <option value="putik">Putik</option>
+                                <option value="san jose cawa-cawa">San Jose Cawa-Cawa</option>
+                                <option value="san jose gusu">San Jose Gusu</option>
+                                <option value="santa maria">Santa Maria</option>
+                                <option value="tetuan">Tetuan</option>
+                                <option value="others">--Others--</option>
+                              </select>
+                              <input class="form-control" type="text" name="brgy1" id="uiTextBrgy" placeholder="Please specify..."  style="display: none;"/>
+                            </div>
+                            <div class="col-md-6">
+                              <label class="control-label">Land Area (sq/m)</label>
+                              <input class="form-control" type="text" onkeypress="return isNumberKey(event)"  name="land_area" id="uiLand" required/>
+                            </div>
+                          </div> <!-- Location and Land Reference -->
+                          <br>
+                          <br>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <h5>Building Classification</h5>
+                            </div>
+                            <div class="col-md-6">
+                              <label class="control-label">Property Used :</label>
+                              <select class="form-select form-select-md" onchange="changeFuncClassification()" name="classification" id="uiClassification" required>
+                                <option value="" disabled="disabled" selected="selected">
+                                  Property Used
+                                </option>
+                                <option value="commercial">Commercial</option>
+                                <option value="residential">Residential</option>
+                                <option value="others">--Others--</option>
+                              </select>
+                              <input class="form-control" type="text" name="classification1" id="uiTextClassification" placeholder="Please specify..."  style="display: none;"/>
+                            </div>
+                            <div class="col-md-6">
+                              <label class="control-label">No. of Storey :</label>
+                              <select class="form-select form-select-md" name="storey" id="uiStorey" required>
+                                <option value="" disabled="disabled" selected="selected">
+                                  No. of Storey
+                                </option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                              </select>
+                            </div>
+                          </div>
+                          <br>
+                          <br>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <h5>Structural Characteristic</h5>
+                            </div>
+                            <!-- 1st features-->
+                            
+                            <div class="col-md-6">
+                              <label class="control-label">Floor Area (sq/m)</label>
+                              <input class="form-control" type="text" onkeypress="return isNumberKey(event)"  name="floor_area" id="uiLand" required/>
+                            </div>
+                            <div class="col-md-6">
+                              <label class="control-label">Roof Framing :</label>
+                              <select class="form-select form-select-md" onchange="changeFuncFraming()" name="roof_framing" id="uiRoofFraming" required>
+                                <option value="" disabled="disabled" selected="selected">
+                                  Roof Framing
+                                </option>
+                                <option value="c-purlins">C-Purlins</option>
+                                <option value="galvanized iron">Galvanized Iron</option>
+                                <option value="lumber">Lumber</option>
+                                <option value="open deck">Open Deck</option>
+                                <option value="reinforced concrete">Reinforced Concrete</option>
+                                <option value="steel">Steel</option>
+                                <option value="wooden">Wooden</option>
+                                <option value="others">--Others--</option>
+                              </select>
+                              <input class="form-control" type="text" name="roof_framing1" id="uiTextRoofFraming" placeholder="Please specify..."  style="display: none;"/>
+                            </div>
+                            <div class="col-md-6">
+                              <label class="control-label">Roofing :</label>
+                              <select class="form-select form-select-md" onchange="changeFuncRoofing()" name="roofing" id="uiRoofing" required>
+                                <option value="" disabled="disabled" selected="selected">
+                                  Roofing
+                                </option>
+                                <option value="corr. / galvanized iron">CORR. / Galvanized Iron</option>
+                                <option value="concrete">Concrete</option>
+                                <option value="galvanized iron">Galvanized Iron</option>
+                                <option value="long span">Long Span</option>
+                                <option value="open deck">Open Deck</option>
+                                <option value="plywood">Plywood</option>
+                                <option value="reinforced concrete">Reinforced Concrete</option>
+                                <option value="s-tile">S-Tile</option>
+                                <option value="others">--Others--</option>
+                              </select>
+                              <input class="form-control" type="text" name="roofing1" id="uiTextRoofing" placeholder="Please specify..."  style="display: none;"/>
+                            </div>
+                            <!--2nd features-->
+                            <div class="col-md-6">
+                              <label class="control-label">Exterior Walls :</label>
+                              <select class="form-select form-select-md" onchange="changeFuncExtWalls()" name="ext_walls" id="uiExtWalls" required>
+                                <option value="" disabled="disabled" selected="selected">
+                                  Exterior Walls
+                                </option>
+                                <option value="adobe type">Adobe Type</option>
+                                <option value="cement plaster">Cement Plaster</option>
+                                <option value="concrete hallow block (chb)">Concrete Hallow Block (CHB)</option>
+                                <option value="painted">Painted</option>
+                                <option value="wood">Wood</option>
+                                <option value="others">--Others--</option>
+                              </select>
+                              <input class="form-control" type="text" name="ext_walls1" id="uiTextExtWalls" placeholder="Please specify..."  style="display: none;"/>
+                              </select>
+                            </div>
+                            <div class="col-md-6">
+                              <label class="control-label">Flooring :</label>
+                              <select class="form-select form-select-md" onchange="changeFuncFlooring()" name="flooring" id="uiFlooring" required>
+                                <option value="" disabled="disabled" selected="selected">
+                                  Flooring
+                                </option>
+                                <option value="concrete">Concrete</option>
+                                <option value="tiles">Tiles (Ceramic, Vynil, etc.)</option>
+                                <option value="wood">Wood</option>
+                                <option value="others">--Others--</option>
+                              </select>
+                              <input class="form-control" type="text" name="flooring1" id="uiTextFlooring" placeholder="Please specify..."  style="display: none;"/>
+                            </div>
+                            <!-- 3rd features-->
+                            <div class="col-md-6">
+                              <label class="control-label">Doors :</label>
+                              <select class="form-select form-select-md" onchange="changeFuncDoors()" name="doors" id="uiDoors" required>
+                                <option value="" disabled="disabled" selected="selected">
+                                  Doors
+                                </option>
+                                <option value="flush">Flush</option>
+                                <option value="glass">Glass</option>
+                                <option value="hcpd/wfpd">HCPD/WFPD</option>
+                                <option value="panel">Panel</option>
+                                <option value="plywood">Plywood</option>
+                                <option value="roll up">Roll up</option>
+                                <option value="wood">Wood</option>
+                                <option value="others">--Others--</option>
+                              </select>
+                              <input class="form-control" type="text" name="doors1" id="uiTextDoors" placeholder="Please specify..."  style="display: none;"/>
+                            </div>
+                            <div class="col-md-6">
+                              <label class="control-label">Ceiling :</label>
+                              <select class="form-select form-select-md" onchange="changeFuncCeiling()" name="ceiling" id="uiCeiling" required>
+                                <option value="" disabled="disabled" selected="selected">
+                                  Ceiling
+                                </option>
+                                <option value="plywood">Plywood</option>
+                                <option value="reinforced concrete">Reinforced Concrete</option>
+                                <option value="unfinished">Unfinished</option>
+                                <option value="wood">Wood</option>
+                                <option value="others">--Others--</option>
+                              </select>
+                              <input class="form-control" type="text" name="ceiling1" id="uiTextCeiling" placeholder="Please specify..."  style="display: none;"/>
+                            </div>
+                            <!-- 4rth features-->
+                            <div class="col-md-6">
+                              <label class="control-label">Windows :</label>
+                              <select class="form-select form-select-md" onchange="changeFuncWindows()" name="windows" id="uiWindows" required>
+                                <option value="" disabled="disabled" selected="selected">
+                                  Windows
+                                </option>
+                                <option value="aluminum casement">Aluminum Casement</option>
+                                <option value="french window">French window</option>
+                                <option value="glass">Glass</option>
+                                <option value="jalousie">Jalousie</option>
+                                <option value="scfw">SCFW</option>
+                                <option value="steel casement">Steel Casement</option>
+                                <option value="wfpd">WFPD</option>
+                                <option value="wood">Wood</option>
+                                <option value="others">--Others--</option>
+                              </select>
+                              <input class="form-control" type="text" name="windows1" id="uiTextWindows" placeholder="Please specify..."  style="display: none;"/>
+                            </div>
+                            <!-- 5th features-->
+                            <div class="col-md-6">
+                              <label class="control-label">Wall Finish :</label>
+                              <select class="form-select form-select-md" onchange="changeFuncWallFinish()" name="wall_finish" id="uiWallFinish" required>
+                                <option value="" disabled="disabled" selected="selected">
+                                  Wall Finish
+                                </option>
+                                <option value="adobe">Adobe</option>
+                                <option value="cement plaster">Cement Plaster</option>
+                                <option value="concrete hallow block (chb)">Concrete Hallow Block (CHB)</option>
+                                <option value="plain cement paint">Plain Cement Paint</option>
+                                <option value="sand blast">Sand Blast</option>
+                                <option value="wood">Wood</option>
+                                <option value="others">--Others--</option>
+                              </select>
+                              <input class="form-control" type="text" name="wall_finish1" id="uiTextWallFinish" placeholder="Please specify..."  style="display: none;"/>
+                            </div>
+                            <!-- 6th features-->
+                            <div class="col-md-6">
+                              <label class="control-label">Electrical Con. :</label>
+                              <select class="form-select form-select-md" onchange="changeFuncConduit()" name="elect_conduit" id="uiConduit" required>
+                                <option value="" disabled="disabled" selected="selected">
+                                  Electrical Conduit
+                                </option>
+                                <option value="breakers">Breakers</option>
+                                <option value="concealed">Concealed</option>
+                                <option value="conduit pipe">Conduit pipe</option>
+                                <option value="mouldflex">Mouldflex</option>
+                                <option value="open">Open</option>
+                                <option value="painted">Painted</option>
+                                <option value="pdx electrical wire">PDX Electrical Wire</option>
+                                <option value="polyflex">Polyflex</option>
+                                <option value="polyvinyl chloride (pvc)">Polyvinyl Chloride (PVC)</option>
+                                <option value="tube">Tube</option>
+                                <option value="unplasticized polyvinyl chloride (upvc)">Unplasticized Polyvinyl Chloride (uPVC)</option>
+                                <option value="others">--Others--</option>
+                              </select>
+                              <input class="form-control" type="text" name="elect_conduit1" id="uiTextConduit" placeholder="Please specify..."  style="display: none;"/>
+                            </div>
+                            <div class="col-md-6">
+                              <label class="control-label">Toilet & Bath :</label>
+                              <select class="form-select form-select-md" onchange="changeFuncToilet()" name="toilet" id="uiToilet" required>
+                                <option value="" disabled="disabled" selected="selected">
+                                  Toilet & Bath
+                                </option>
+                                <option value="concrete hallow block">Concrete Hallow Block</option>
+                                <option value="tiles">Tiles (Ceramic,etc)</option>
+                                <option value="wood">Wood</option>
+                                <option value="others">--Others--</option>
+                              </select>
+                              <input class="form-control" type="text" name="toilet1" id="uiTextToilet" placeholder="Please specify..."  style="display: none;"/>
+                            </div>
+                            <div class="col-md-6">
+                              <label class="control-label">Plumbing/Sewer :</label>
+                              <select class="form-select form-select-md" onchange="changeFuncPlumbing()" name="plumbing" id="uiPlumbing" required>
+                                <option value="" disabled="disabled" selected="selected">
+                                  Plumbing/Sewer
+                                </option>
+                                <option value="galvanized iron">Galvanized Iron</option>
+                                <option value="open">Open</option>
+                                <option value="polyvinyl chloride (pvc)">Polyvinyl Chloride (PVC)</option>
+                                <option value="others">--Others--</option>
+                              </select>
+                              <input class="form-control" type="text" name="plumbing1" placeholder="Please specify..." id="uiTextPlumbing" style="display: none;"/>
+                            </div>
+                          </div>
+                          <br>
+                          <br>
+                          <div class="row">
+                            <center>
+                              
+                            <div class="col-md-12">
+                            <lottie-player id="secondLottie" src="https://assets10.lottiefiles.com/packages/lf20_myryne1p/lottie_step1/data.json" style="width:60%">"></lottie-player>
+                            <p>-- Data is ready for prediction --</p>
+                            <div class="col-md-7">
+                              <button type="submit" class="btn btn-primary btn-md" id="predict-continue">Continue</button>
+                            </div>
+                            </div>
+                            </center>
+                          </div>
+                    </div>
+          </form>
+      </div>
+    </section>
+  <!--Draggable Pictures constructions-->
+	<div id="draggable" data-toggle="tooltip" data-placement="bottom" title="Double Click to Hide/Show">
+    <div class="head-desc">  
+      <img src="../static/img/icons/construction-worker.png" alt="">
+      <h4>Construction Materials</h4>
+    </div>
+    <br>
+    <hr>
+    <h4>Roof Framing</h4>
+    <br>
+    <div class="img-desc">
+      <h5>C-Purlins</h5>
+      <img src="../static/construction/purlin-c.jpg" alt="">
+      <p>C purlins are used as purlins over walls, rafters, floor joists and studs for walls. Z purlins : Z purlins resemble the alphabet Z and are also called as Zed Purlins. This shape helps the purlins to overlap joint and is stronger and studier than the C purlins.</p>
+    </div>
+    <br><br>
+    <div class="img-desc">
+      <h5>Galvanized Iron</h5>
+      <img src="../static/construction/gi.jfif" alt="">
+      <p>Galvanized iron is essentially iron that's been coated with a protective zinc layer on the outside. Iron itself is susceptible to weather-related degradation. When exposed to moisture and oxygen, for example, iron will rust and corrode.</p>
+    </div>
+    <br><br>
+    <div class="img-desc">
+      <h5>Lumber</h5>
+      <img src="../static/construction/lumber.jfif" alt="">
+      <p>Lumber, collective term for harvested wood, whether cut into logs, heavy timbers, or members used in light-frame construction.</p>
+    </div>
+    <br><br>
+    <div class="img-desc">
+      <h5>Reinforced Concrete</h5>
+      <img src="../static/construction/reinforced-concrete.jpg" alt="">
+      <p>Reinforced concrete, concrete in which steel is embedded in such a manner that the two materials act together in resisting forces.</p>
+    </div>
+    <br><br>
+    <div class="img-desc">
+      <h5>Steel</h5>
+      <img src="../static/construction/steel.jpg" alt="">
+      <p>This is the most common type of steel used in building construction, which is known as mild steel.</p>
+    </div>
+    <br><br>
+    <div class="img-desc">
+      <h5>Wooden</h5>
+      <img src="../static/construction/wooden.jfif" alt="">
+      <p>Wood is one of the most used natural building materials in the world. A number of valuable properties such as low heat conductivity.</p>
+    </div>
+    <hr>
+    <br><br>
+    <hr>
+    <h4>Roofing</h4>
+    <br><br>
+    <div class="img-desc">
+      <h5>Galvanized Iron Sheet</h5>
+      <img src="../static/construction/gi-sheet.jpg" alt="">
+    </div>
+    <br><br>
+    <div class="img-desc">
+      <h5>Long Span</h5>
+      <img src="../static/construction/long-span.jfif" alt="">
+    </div>
+    <br><br>
+    <div class="img-desc">
+      <h5>S-Tile</h5>
+      <img src="../static/construction/s-tile.jpg" alt="">
+    </div>
+    <hr>
+    <br><br>
+    <hr>
+    <h4>Exterior Walls</h4>
+    <br>
+    <div class="img-desc">
+      <h5>Adobe Type</h5>
+      <img src="../static/construction/adobe-type.jpg" alt="">
+    </div>
+    <br><br>
+    <div class="img-desc">
+      <h5>Cement Plaster</h5>
+      <img src="../static/construction/cement-plaster.jpg" alt="">
+    </div>
+    <br><br>
+    <div class="img-desc">
+      <h5>Concrete Hallow Block (CHB)</h5>
+      <img src="../static/construction/chb.jfif" alt="">
+    </div>
+    <br><br>
+    <div class="img-desc">
+      <h5>Painted</h5>
+      <img src="../static/construction/painted.jfif" alt="">
+    </div>
+    <br><br>
+    <div class="img-desc">
+      <h5>Wooden</h5>
+      <img src="../static/construction/wood-wall.jpg" alt="">
+    </div>
+    <hr>
+    <br><br>
+    <hr>
+    <h4>Flooring</h4>
+    <br>
+    <div class="img-desc">
+      <h5>Concrete Cement</h5>
+      <img src="../static/construction/concrete-flooring.jpg" alt="">
+    </div>
+    <br><br>
+    <div class="img-desc">
+      <h5>Tiles (Ceramic, Vynil, etc.)</h5>
+      <img src="../static/construction/tiles-flooring.jpg" alt="">
+    </div>
+    <br><br>
+    <div class="img-desc">
+      <h5>Wood</h5>
+      <img src="../static/construction/wood-flooring.jfif" alt="">
+    </div>
+    <hr>
+    <br><br>
+    <hr>
+    <h4>Doors</h4>
+    <br>
+    <div class="img-desc">
+      <h5>Flush</h5>
+      <img src="../static/construction/flush-door.jfif" alt="">
+    </div>
+    <br><br>
+    <div class="img-desc">
+      <h5>Glass</h5>
+      <img src="../static/construction/glass-door.jpg" alt="">
+    </div>
+    <br><br>
+    <div class="img-desc">
+      <h5>Panel</h5>
+      <img src="../static/construction/panel-door.jpg" alt="">
+    </div>
+    <br><br>
+    <div class="img-desc">
+      <h5>Roll Up</h5>
+      <img src="../static/construction/roll-up-door.jfif" alt="">
+    </div>
+	</div>
+  
+<script>
+  
+    // Draggable Images Construction
+    var div = $("#draggable");
+    $(function () {
+      div.draggable();
+    });
+
+    div.dblclick(function () {
+      div.fadeOut(500);
+    });
+
+    $("body").dblclick(function () {
+      if (div.css("display") == "none") div.fadeIn(500);
+    });
+
+</script>
+
+
+
+<script>
+LottieInteractivity.create({
+    mode:"scroll",
+    player: "#secondLottie",
+    container: "#MyContainerId",
+    actions: [
+        {
+            visibility:[0,1.8],
+            type: "seek",
+            frames: [0, 179]
+        }
+    ]
+});
+</script>
+<script src="../static/js/others.js"></script>
+<!-- End con Section -->
+{% endblock %}

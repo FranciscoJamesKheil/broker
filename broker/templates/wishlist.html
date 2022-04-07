@@ -1,0 +1,156 @@
+{% extends "base.html" %} {% block title %}My Wishlist{% endblock %} {% block
+headtype %}header{% endblock%} {% block icon%}far fa-store-alt{% endblock%} {%
+block icon1 %}far fa-calculator{%endblock%}
+{%block wish%}filter:grayscale(0){%endblock%}
+{% block icon2 %}fa
+fa-user-circle{%endblock%} {% block content %}
+            {%if user.email == "admin@gmail.com"%}
+              <script>
+                window.location.href = "/logout";
+              </script>
+            {%endif%}
+<div class="det">
+  <div class="div-container portfolio-wrap col-lg-12">
+    <div class="fields">
+      <center>
+        <h3>My Wishlist</h3>
+        <p>
+          Add the property <br />to the wishlist that you want to be contact.
+        </p>
+        <lottie-player
+          id="firstLottie"
+          src="https://assets1.lottiefiles.com/packages/lf20_vuszyqsg.json"
+          style="width: 100%; height: 400px"
+          >"></lottie-player
+        >
+      </center>
+    </div>
+  </div>
+  <script>
+    LottieInteractivity.create({
+      mode: "scroll",
+      player: "#firstLottie",
+      actions: [
+        {
+          visibility: [0, 1],
+          type: "seek",
+          frames: [0, 61],
+        },
+      ],
+    });
+  </script>
+
+  <div class="wish_container">
+    {% for wish in wishlist %} {%if wish.user_id == current_user.id %}
+    <div class="fields">
+      <div class="mypost_owner">
+        {%for owner in owner %} {% if wish.post_user == owner.id %}
+        <div class="my_post_pic_name">
+          <a href="/account/000Ov@90a{{owner.id}}07Xsg03awtVBQredirectid..."
+            ><span class="home_feed_cursor">
+              {% if owner.name == 'None' %}
+              <img
+                src="../static/profile/userbw.png"
+                style="
+                  width: 30px;
+                  height: 30px;
+                  margin-right: 8px;
+                  border-radius: 50%;
+                "
+                alt=""
+              />
+              {% elif owner.name %}
+              <img
+                src="../static/profile/{{owner.name}}"
+                style="
+                  width: 30px;
+                  height: 30px;
+                  margin-right: 8px;
+                  border-radius: 50%;
+                "
+                alt=""
+              />
+              {% else %}
+              <img
+                src="../static/profile/userbw.png"
+                style="
+                  width: 30px;
+                  height: 30px;
+                  margin-right: 8px;
+                  border-radius: 50%;
+                "
+                alt=""
+              />
+              {% endif%}{{owner.first_name}} {{owner.last_name}}</span
+            ></a
+          >
+        </div>
+        <div class="dropdown">
+          <i
+            class="far fa-ellipsis-h-alt"
+            id="dropdownMenuButton1"
+            data-bs-toggle="dropdown"
+          ></i>
+          {%for post in post %} {% if wish.post_id == post.id %}
+          <ul
+            class="dropdown-menu"
+            id="rud_dropdown"
+            aria-labelledby="dropdownMenuButton1"
+          >
+            <li>
+              <a
+                class="dropdown-item"
+                href="/property_details/0z0OQv_1v@90a{{post.id}}07Xsg03awtVBQdetailsid..."
+                ><i class="far fa-info-circle"></i> View Post</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="/remove_wishlist/{{wish.id}}"
+                ><i class="far fa-trash"></i> Remove to Wishlist</a
+              >
+            </li>
+          </ul>
+          {%endif%} {%endfor%}
+        </div>
+      </div>
+      {%for post in post%} {% if post.id == 'None' %}
+      <p>No record, {{owner.first_name.capitalize()}} delete the post...</p>
+      {%endif%} {%endfor%} {%for post in post %} {% if wish.post_id == post.id
+      %}
+      <h5>{{post.title}}</h5>
+      <i>{{post.date_posted}}</i>
+      <br />
+      <p id="details_content">{{ post.content[:60] }}<span id="dots{{post.id}}">... </span><span id="more{{post.id}}" class="more">{{ post.content[60:] }}</span><span class="readmorebtn" onclick="myFunction{{post.id}}()" id="myBtn{{post.id}}">Read more</span></p>
+              
+              <script>
+              function myFunction{{post.id}}() {
+                var dots = document.getElementById("dots{{post.id}}");
+                var moreText = document.getElementById("more{{post.id}}");
+                var btnText = document.getElementById("myBtn{{post.id}}");
+
+                if (dots.style.display === "none") {
+                  dots.style.display = "inline";
+                  btnText.innerHTML = "Read more"; 
+                  moreText.style.display = "none";
+                } else {
+                  dots.style.display = "none";
+                  btnText.innerHTML = "Read less"; 
+                  moreText.style.display = "inline";
+                }
+              }
+              </script>
+      <button type="button" class="btn btn-danger btn-sm"  style="cursor: text;">
+        PHP {{post.price}}
+      </button>
+      <br />
+      <br />
+      <div class="mypost_img">
+        <img src="../static/uploads/{{post.name}}" class="img-fluid" alt="" />
+      </div>
+      {%endif%} {%endfor%} {%endif%} {%endfor%}
+    </div>
+    {%endif%} {%endfor%}
+  </div>
+
+  {% endblock %}
+</div>

@@ -1,0 +1,282 @@
+{% extends "base.html" %} {% block title %} {{ fname.capitalize() + " "
++lname.capitalize()}}{% endblock %} {% block headtype %}header{% endblock%} {%
+block icon%}far fa-store-alt{% endblock%} 
+{% block filterG %}filter:grayscale(0){%endblock%}
+{% block filterG1 %}filter:grayscale(0){%endblock%}
+{% block filterG2 %}filter:grayscale(0){%endblock%}
+{% block icon1 %}far
+fa-calculator{%endblock%} {% block icon2 %}fa fa-user-circle{%endblock%} {%
+block content %}
+<div class="det">
+  <section class="test" data-aos="fade" id="profile_test">
+    <div class="container">
+      <div class="test-item">
+        {% if user.name == 'None' %}
+        <img
+          src="../static/profile/userbw.png"
+          style="width: 144px; height: 144px; border-radius: 50%"
+          alt=""
+        />
+        {% elif user.name %}
+        <img
+          src="../static/profile/{{user.name}}"
+          style="width: 144px; height: 144px; border-radius: 50%"
+          alt=""
+        />
+        {% else %}
+        <img
+          src="../static/profile/userbw.png"
+          style="width: 144px; height: 144px; border-radius: 50%"
+          alt=""
+        />
+        {% endif %}
+        <h3 style="text-transform: capitalize">{{ fname }} {{ lname }}</h3>
+        <h4>Profile</h4>
+      </div>
+    </div>
+    <div class="container">
+      <div class="test-item">
+        <h4>{{email}} | {{contact}}</h4>
+      </div>
+    </div>
+    <div class="container" id="profile_1f">
+      <div class="profile_content">
+        <button
+          class="btn btn-light btn-sm"
+          type="button"
+          data-toggle="modal"
+          data-target="#exampleModal"
+        >
+          <i class="fa fa-edit"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+      <div class="profile_my_post" id="head_profile">
+        <h5>My Post</h5>
+        <div>
+          <a
+            href="/my_wishlist"
+            class="btn btn-light btn-sm"
+            data-toggle="tooltip"
+            data-placement="bottom"
+            title="My wishlist"
+            ><i class="fa fa-clipboard-list-check"></i
+          ></a>
+          <a
+            href="/predict"
+            class="btn btn-info btn-sm"
+            data-toggle="tooltip"
+            data-placement="bottom"
+            title="Sell property"
+            ><i class="fa fa-plus-hexagon"></i
+          ></a>
+        </div>
+      </div>
+      {% for post in post %} {% if post.user_id == user.id %}
+  <div class="div-container">
+    <div class="container">
+      <div class="profile_my_post">
+        <div class="mypost_owner">
+          <div class="my_post_pic_name">
+            <a href="/my_profile">
+              {% if user.name == 'None' %}
+              <img
+                src="../static/profile/userbw.png"
+                style="
+                  width: 30px;
+                  height: 30px;
+                  margin-right: 8px;
+                  border-radius: 50%;
+                "
+                alt=""
+              />
+              {% elif user.name %}
+              <img
+                src="../static/profile/{{user.name}}"
+                style="
+                  width: 30px;
+                  height: 30px;
+                  margin-right: 8px;
+                  border-radius: 50%;
+                "
+                alt=""
+              />
+              {% else %}
+              <img
+                src="../static/profile/userbw.png"
+                style="
+                  width: 30px;
+                  height: 30px;
+                  margin-right: 8px;
+                  border-radius: 50%;
+                "
+                alt=""
+              />
+              {% endif%} {{user.first_name +" "+user.last_name}}
+            </a>
+          </div>
+          <div class="dropdown">
+            <i
+              class="far fa-ellipsis-h-alt"
+              id="dropdownMenuButton1"
+              data-bs-toggle="dropdown"
+            ></i>
+            <ul
+              class="dropdown-menu"
+              id="rud_dropdown"
+              aria-labelledby="dropdownMenuButton1"
+            >
+              <li>
+                <a class="dropdown-item" href="/update_post/{{post.id}}"
+                  ><i class="far fa-edit"></i> Edit</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" href="/property_details/0z0OQv_1v@90a{{post.id}}07Xsg03awtVBQdetailsid..."
+                  ><i class="far fa-info-circle"></i> View Post</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" href="/delete_post/{{post.id}}"
+                  ><i class="far fa-trash"></i> Delete Post</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <h5>{{ post.title }}</h5>
+        <p>{{post.date_posted}}</p>
+        <br />
+        <p id="details_content">{{ post.content[:60] }}<span id="dots{{post.id}}">... </span><span id="more{{post.id}}" class="more">{{ post.content[60:] }}</span><span class="readmorebtn" onclick="myFunction{{post.id}}()" id="myBtn{{post.id}}">Read more</span></p>
+              
+              <script>
+              function myFunction{{post.id}}() {
+                var dots = document.getElementById("dots{{post.id}}");
+                var moreText = document.getElementById("more{{post.id}}");
+                var btnText = document.getElementById("myBtn{{post.id}}");
+
+                if (dots.style.display === "none") {
+                  dots.style.display = "inline";
+                  btnText.innerHTML = " Read more"; 
+                  moreText.style.display = "none";
+                } else {
+                  dots.style.display = "none";
+                  btnText.innerHTML = " Read less"; 
+                  moreText.style.display = "inline";
+                }
+              }
+              </script>
+        <button type="button" class="btn btn-danger btn-sm" style="cursor: text;">PHP {{post.price}}</button>
+        <br><br>
+        <div class="mypost_img">
+          <img src="../static/uploads/{{post.name}}" class="img-fluid" alt="" />
+        </div>
+      </div>
+    </div>
+  </div>
+      {% endif %} {% endfor %}
+
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content" id="profile_modal">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Update Profile</h5>
+          <button
+            type="button"
+            class="close"
+            id="close_btn_profile"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form
+          action="/update_profile/{{user.id}}"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          <div class="modal-body">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><b>Upload</b></span>
+              </div>
+              <div class="custom-file">
+                <input
+                  type="file"
+                  class="custom-file-input"
+                  id="inputGroupFile01"
+                  name="profile_img"
+                />
+                <input
+                  type="text"
+                  value="{{user.name}}"
+                  name="cur_img"
+                  style="display: none"
+                />
+                <label class="custom-file-label" for="inputGroupFile01"
+                  >Choose file</label
+                >
+              </div>
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><b>First name:</b> </span>
+              </div>
+              <input
+                type="text"
+                class="form-control text-capitalize"
+                aria-label="First name"
+                name="first_name"
+                value="{{user.first_name}}"
+              />
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><b>Last name:</b> </span>
+              </div>
+              <input
+                type="text"
+                class="form-control text-capitalize"
+                aria-label="Last name"
+                name="last_name"
+                value="{{user.last_name}}"
+              />
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><b>Contact no.:</b> </span>
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                aria-label="Contact"
+                name="contact"
+                value="{{user.contact}}"
+              />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="submit" class="btn btn-info">Save changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  {% endblock %}

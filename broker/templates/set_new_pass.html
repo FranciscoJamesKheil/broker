@@ -1,0 +1,111 @@
+{% extends "base.html" %} {% block title %}Set New Password{% endblock %} {% block headtype
+%}header{% endblock %}
+{% block log%}far fa-sign-in-alt{% endblock%}
+{% block reg%}far fa-user-plus{% endblock%}
+ {% block nav %}
+<ul>
+  {% if user.is_authenticated %}
+  <li><a href="/home">Home</a></li>
+  <li><a href="/logout">Logout</a></li>
+  {% else %}
+  <li><a href="/login">Login</a></li>
+  <li><a href="/register">Register</a></li>
+  {% endif %}
+</ul>
+<i class="bi bi-list mobile-nav-toggle"></i>
+{% endblock %}
+
+<!-- End of Message alert -->
+
+<!-- Main -->
+{% block content %}
+<!-- ======= Features Section ======= -->
+<section class="features" data-aos="fade-up">
+  <div class="container">
+    <div class="login-container">
+      <form method="POST" action="/submit_new_pass/{{my_id}}">
+        <center>
+          <h3 class="fa fa-key"></h4>
+        </center>
+        <h3 align="center">Set new password</h3>
+        <br />
+        <div class="form-group">
+          <input type="text" value="{{my_id}}" name="my_id" style="display: none;">
+          <label for="email">New Password: </label>
+          <input
+            type="password"
+            class="form-control"
+            id="password1"
+            name="password1"
+            placeholder="Atleast 8 characters,spcial characters,numbers."
+            onkeyup="checkMatch()"
+            required
+          /><span toggle="#password1" class="fa fa-fw fa-eye field-icon toggle-password1"></span>
+        </div>
+        <div class="form-group">
+          <label
+            id="matchError1"
+            style="color: rgb(0, 187, 0); font-weight: 500; display: none"
+            >Match</label
+          >
+          <label
+            id="matchError2"
+            style="color: rgb(187, 0, 0); font-weight: 500; display: none"
+            >Password don't match..</label
+          >
+          <label
+            id="matchError3"
+            style="color: rgb(187, 0, 0); font-weight: 500; display: none"
+            >Too short, it must be atleast 8 char.</label
+          >
+        </div>
+        <div class="form-group">
+          <label for="email">Confirm New Password: </label>
+          <input
+            type="password"
+            class="form-control"
+            id="password2"
+            name="password2"
+            placeholder="Confirm your new password"
+            onkeyup="checkMatch()"
+            required
+          /><span toggle="#password2" class="fa fa-fw fa-eye field-icon toggle-password2"></span>
+        </div>
+        <center>
+          <button type="submit">Save</button>
+        </center>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  function checkMatch() {
+    var p1 = document.getElementById("password1").value;
+    var p2 = document.getElementById("password2").value;
+
+    if (p1.length < 8) {
+      document.getElementById("matchError1").style.display = "none";
+      document.getElementById("matchError2").style.display = "none";
+      document.getElementById("matchError3").style.display = "block";
+    } else if (p1 == "" ||  p2 == "") {
+      document.getElementById("matchError1").style.display = "none";
+      document.getElementById("matchError2").style.display = "none";
+      document.getElementById("matchError3").style.display = "none";
+    } else if (p1 == p2) {
+      document.getElementById("matchError1").style.display = "block";
+      document.getElementById("matchError2").style.display = "none";
+      document.getElementById("matchError3").style.display = "none";
+    } else {
+      document.getElementById("matchError1").style.display = "none";
+      document.getElementById("matchError2").style.display = "block";
+      document.getElementById("matchError3").style.display = "none";
+    }
+  }
+
+</script>
+<!-- End Features Section -->
+
+{% endblock %}
+
+<!-- End Main -->

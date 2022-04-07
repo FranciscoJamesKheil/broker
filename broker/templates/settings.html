@@ -1,0 +1,157 @@
+{% extends "base.html" %} {% block title %}Settings & Privacy{% endblock%} {%
+block icon%}far fa-home{% endblock%} {% block icon1 %}far
+fa-calculator{%endblock%} {% block icon2 %}far fa-user-circle{%endblock%} {%
+block content %}
+<section class="features" data-aos="fade">
+  <div class="container">
+    <h3>Settings & Privacy</h3>
+  </div>
+
+  <div class="container">
+    <div class="set_container">
+      <ul class="pri_settings">
+        <li onclick="change(1)"><i class="fa fa-key"></i> Credential</li>
+        <li onclick="change(2)"><i class="fa fa-desktop"></i> Login Record</li>
+      </ul>
+
+      <div class="setCont">
+        <ul class="log_rec" id="credential_id">
+          <form action="/set_new_pass_settings" method="POST">
+            <li>Current Password</li>
+            <input
+              type="text"
+              name="myID"
+              style="display: none"
+              value="{{user.id}}"
+            />
+            <li>
+              <input
+                class="form-control col-md-5"
+                type="password"
+                id="current_pass"
+                name="current_password"
+                onkeyup="short(1)"
+                placeholder="********"
+                required
+              /><span toggle="#current_pass" class="fa fa-fw fa-eye toggle-password1"></span>
+            </li>
+            <li id="shortwarn" style="display: none">
+               Current Password is too short, it must be atleast 8 char.
+            </li>
+            <li>New Password</li>
+            <li>
+              <input
+                class="form-control col-md-5"
+                type="password"
+                name="new_password"
+                id="new_pass"
+                onkeyup="short(2)"
+                placeholder="********"
+                required
+              /><span toggle="#new_pass" class="fa fa-fw fa-eye toggle-password2"></span>
+            </li>
+            <li id="shortwarn1" style="display: none">
+              New Password is too short, it must be atleast 8 char.
+            </li>
+            <li>
+              <button class="btn btn-info btn-sm col-md-5">
+                Confirm Change Password
+              </button>
+            </li>
+          </form>
+        </ul>
+        <script>
+          function short(y) {
+            if(y==1) {
+              var x = document.getElementById("current_pass").value;
+
+              if (x.length < 8) {
+                document.getElementById("shortwarn").style.display = "block";
+              } else {
+                document.getElementById("shortwarn").style.display = "none";
+              }
+            } else {
+              var x = document.getElementById("new_pass").value;
+
+              if (x.length < 8) {
+                document.getElementById("shortwarn1").style.display = "block";
+              } else {
+                document.getElementById("shortwarn1").style.display = "none";
+              }
+            }
+          }
+          
+          // Show / Hide password
+          $(".toggle-password1").click(function () {
+            $(this).toggleClass("fa-eye fa-eye-slash");
+            var input = $($(this).attr("toggle"));
+            if (input.attr("type") == "password") {
+              input.attr("type", "text");
+            } else {
+              input.attr("type", "password");
+            }
+          });
+          // Show / Hide password
+          $(".toggle-password2").click(function () {
+            $(this).toggleClass("fa-eye fa-eye-slash");
+            var input = $($(this).attr("toggle"));
+            if (input.attr("type") == "password") {
+              input.attr("type", "text");
+            } else {
+              input.attr("type", "password");
+            }
+          });
+
+        </script>
+
+        <ul class="log_rec" style="display: none" id="log_id">
+          <li style="border-radius: 10px">
+            If you didn't login on the specific time, please make some action to
+            change password. <br />
+            <span
+              style="
+                color: rgb(1, 109, 177);
+                text-decoration: underline;
+                cursor: pointer;
+              "
+              onclick="change(1)"
+              >Change Password</span
+            >
+            <br /><br />
+            {%if counthist > 0%}
+            <a
+              href="/clear_all_login/{{user.id}}"
+              style="color: rgb(255, 78, 78)"
+              ><i class="far fa-trash" style="color: rgb(255, 78, 78)"></i>
+              Clear All</a
+            >
+            {%else%}
+            <p>No more login history...</p>
+            {%endif%}
+          </li>
+          {%for x in login_record %} {%if x.user_id == user.id %}
+          <li style="border-radius: 10px">
+            <b>Operating System:</b> {{x.os}} <br />
+            <b>Accurance date:</b> {{x.datetime_login}}
+          </li>
+          {%endif%} {%endfor%}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  function change(x) {
+    switch (x) {
+      case 1:
+        document.getElementById("credential_id").style = "display: block";
+        document.getElementById("log_id").style = "display: none";
+        break;
+      case 2:
+        document.getElementById("credential_id").style = "display: none";
+        document.getElementById("log_id").style = "display: block";
+        break;
+    }
+  }
+</script>
+{% endblock %}

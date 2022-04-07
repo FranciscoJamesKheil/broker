@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BROKER | {% block title %}House and Lot Price Prediction{% endblock %}</title>
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap"
+      rel="stylesheet"
+    />
+    
+
+    <!-- Extra CSS Files -->
+    <link
+      href="../static/extra/animate.css/animate.min.css"
+      rel="stylesheet"
+    />
+    <link href="../static/extra/aos/aos.css" rel="stylesheet" />
+    <link
+      href="../static/extra/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link 
+      href="../static/extra/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      href="../static/extra/boxicons/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="../static/extra/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="../static/extra/swiper/swiper-bundle.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <!--Personal Style-->
+    <link href="../static/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../static/css/preloader.css">
+
+    <!--Broker Icon-->
+    <link rel="icon" href="../static/img/on_system/logo_maker.png" sizes="12x12"/>
+    <!--Sweet Alert-->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!--lottie-->
+    <script src="https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+      
+  </head>
+  <body onload="startTime()">
+      <!-- Page preloader -->
+      <div class="page-wrap">
+      <div id="hola">
+        <div id="preloader">
+          <span></span>
+          <span></span>
+        </div>
+      </div></div>
+    <!-- ======= Header ======= -->
+    <header
+      id="header"
+      class="fixed-top col-lg-9 mx-auto d-flex align-items-center {% block headtype %}{% endblock %}"
+    >
+      <div class="container d-flex justify-content-between align-items-center col-lg-12">
+        <div class="logo">
+          <h1 class="text-light align-items-center">
+            <a href="/"><span><img src="../static/img/on_system/broker1.png" alt=""></span></a>
+          </h1>
+        </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <!--If it is in the index or homepage it will hide the rest of nav links-->
+          {% if index == True %}
+          <li><a href="/about">About</a></li>
+          <li><a href="/services">Services</a></li>
+          <li id="dark"><a><i id="moon" class="far fa-moon"  title="Dark Mode"></i><i id="sun" class="far fa-sun" title="Light Mode"></i></a></li>
+          
+          <!--If broker admin requires email of admin and it must be authenticated-->
+          {%elif user.is_authenticated and user.email == "admin@gmail.com"%}
+          <li id="head_search">
+            <form action="/home/search_location" method="POST">
+              <input type="text" id="search_brgy" class="form-control col-lg-12 form-control-sm" name="search_brgy" autocomplete="off" placeholder="Search Broker">
+              <input type="submit" style="display: none;">
+            </form>
+          </li>
+          <li><a href="/_asf99admindashboard%3FhfkVi98Vidhq_asofj1490_0da09fj_%40oas0nimda"><i class="far fa-tachometer-alt-slow"></i> Dashboard</a></li>
+          <li><a href="#" title="Review seller's post"><i class="far fa-mail-bulk"></i> Request <span class="badge badge-danger" id="blink-request-post">4</span></a></li>
+          <li class="dropdown">
+            <a href="#"
+              ><i class="far fa-user-circle"></i> <span style="text-transform: capitalize"> {{ fname }}</span>
+              <i class="bi bi-chevron-down"></i
+            ></a>
+            <ul>
+              <li><a href="/my_profile">Profile</a></li>
+              <li><a href="/settings">Settings & Privacy</a></li>
+              <li><a href="/support">Helps & Support</a></li>
+              <li onclick="logout_alert()"><a href="#">Logout</a></li>
+            </ul>
+          </li>
+          <li id="dark"><a><i id="moon" class="far fa-moon"  title="Dark Mode"></i><i id="sun" class="far fa-sun" title="Light Mode"></i></a></li>
+          
+          <!--If broker sellers attempts to access the url of admin it will logout automatically-->
+          {% elif user.is_authenticated and user.email != "admin@gmail.com"%}
+          <li id="head_search">
+            <form action="/home/search_location" method="POST">
+              <input type="text" id="search_brgy" class="form-control col-lg-12 form-control-sm" name="search_brgy" autocomplete="off" placeholder="Search Broker">
+              <input type="submit" style="display: none;">
+            </form>
+          </li>
+          <li><a href="/home"><i class="{% block icon%}{% endblock%}"></i> Market</a></li>
+          <li><a href="/predict" title="Make a property price range"><i class="{% block icon1%}{% endblock%}"></i> Sell</a></li>
+          <li class="dropdown">
+            <a href="#"
+              ><i class="{% block icon2%}{% endblock%}"></i> <span style="text-transform: capitalize"> {{ fname }}</span>
+              <i class="bi bi-chevron-down"></i
+            ></a>
+            <ul>
+              <li><a href="/my_profile">Profile</a></li>
+              <li><a href="/settings">Settings & Privacy</a></li>
+              <li><a href="/support">Helps & Support</a></li>
+              <li onclick="logout_alert()"><a href="#">Logout</a></li>
+            </ul>
+          </li>
+          <li id="dark"><a><i id="moon" class="far fa-moon"  title="Dark Mode"></i><i id="sun" class="far fa-sun" title="Light Mode"></i></a></li>
+          
+          <!--If broker admin attempts to access the url of customers it will logout automatically-->
+          {% else %}
+            <li><a href="/login"><i class="{% block log%}{% endblock%}""></i> Login</a></li>
+            <li><a href="/register"><i class="{% block reg%}{% endblock%}""></i> Register</a></li>
+            <li id="dark"><a><i id="moon" class="far fa-moon"  title="Dark Mode"></i><i id="sun" class="far fa-sun" title="Light Mode"></i></a></li>
+          {% endif %}
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+    </header>
+    <!-- End Header -->
+
+    {% block intro %}{% endblock %}
+    <main id="main" class="col-lg-9 mx-auto p-0">
+      {% with messages = get_flashed_messages(with_categories=true) %} {% if
+        messages %} {% for category, message in messages %} {% if category ==
+        'error' %}
+        <div class="alert col-lg-9 alert-danger alter-dismissable fade show fixed-top mt-5 mx-auto" id="suc-alert" role="alert">
+          {{ message }}
+          <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        {% else %}
+        <div class="alert col-lg-9 alert-success alter-dismissable fade show fixed-top mt-5 mx-auto" id="suc-alert" role="alert">
+          {{ message }}
+          <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      {% endif %} {% endfor %} {% endif %} {% endwith %}
+      
+      {% if index == True %}
+      {% elif logo == True%}
+      {%elif user.email == "admin@gmail.com"%}
+        <!--This is for admin removing side nav-->
+      {% else %}
+      <div class="side_nav" id="side_nav">
+          <ul class="nav">
+            <li class="nav-item profile-item" 
+            data-toggle="tooltip"
+            data-placement="left"
+            title="My Profile">
+              {% if user.name == 'None'%}
+              <a href="/my_profile" class="nav-link"><img src="../static/profile/userbw.png" style="{%block filterG1%}{%endblock%}" id="side-nav-id-profile" alt="" /></a>
+              {% elif user.name%}
+              <a href="/my_profile" class="nav-link"><img src="../static/profile/{{user.name}}" style="{%block filterG%}{%endblock%}" id="side-nav-id-profile" alt="" /></a>
+              {% else%}
+              <a href="/my_profile" class="nav-link"><img src="../static/profile/userbw.png" style="{%block filterG2%}{%endblock%}" id="side-nav-id-profile" alt="" /></a>
+              {%endif%}
+            </li>
+            <li class="nav-item" id="animate_li" 
+            data-toggle="tooltip"
+            data-placement="left"
+            title="My wishlist">
+              <a class="nav-link" href="/my_wishlist"><img src="../static/img/icons/wishlist.png" style="{%block wish%}{%endblock%}"id="side-nav-id" alt=""></a>
+            </li>
+            <li class="nav-item" id="animate_li1" 
+            data-toggle="tooltip"
+            data-placement="left"
+            title="Sell Property">
+              <a class="nav-link" href="/predict"><img src="../static/img/icons/trade.png" style="{%block predict%}{%endblock%}" id="side-nav-id" alt=""></a>
+            </li>
+          </ul>
+      </div>
+      <div class="home col-lg-11 mx-auto">
+      {% endif %}
+        {% block content %}
+        {% endblock %}
+      <!-- ======= Footer ======= -->
+    <footer
+      id="footer"
+    > <!--
+      data-aos="fade-up"
+      data-aos-easing="ease-in-out"
+      data-aos-duration="500"
+    -->
+      <div class="footer-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 col-md-6 footer-links" 
+              data-aos="fade">
+              <h4>Broker</h4>
+              <ul>
+                {%if user.email == "admin@gmail.com"%}
+                <li>
+                  <i class="bx bx-chevron-right"></i> <a href="/_asf99admindashboard%3FhfkVi98Vidhq_asofj1490_0da09fj_%40oas0nimda">Dashboard</a>
+                </li>
+                {%else%}
+                <li>
+                  <i class="bx bx-chevron-right"></i> <a href="/home">Market</a>
+                </li>
+                {%endif%}
+                <li>
+                  <i class="bx bx-chevron-right"></i> <a href="/about">About us</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i> <a href="/services">Services</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i>
+                  <a href="/settings">Settings & Privacy</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6 footer-contact"
+              data-aos="fade">
+              <h4>Contact Us</h4>
+              <p>
+                Philippines, Ph 2021<br />
+                Zamboanga City <br /><br />
+                <strong>Phone:</strong> +09950959590<br />
+                <strong>Email:</strong> broker@gmail.com<br />
+              </p>
+            </div>
+
+            <div class="col-lg-3 col-md-6 footer-info"
+              data-aos="fade">
+              <h4><img src="../static/img/on_system/broker1.png" alt="" id="footer-logo"></h4>
+              <p>Broker | aims to predict the estimated price of a house and lot using Linear Regression algorithm.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="copyright">
+          &copy; Copyright <strong><span>Broker</span></strong
+          >. All Rights Reserved
+        </div>
+
+            </div>
+          </footer>
+    <!-- End Footer -->
+    {% if index == True %}
+      {% elif logo == True%}
+  {% else %}
+    <footer
+      id="footer-mobile"
+    > <!--
+      data-aos="fade-up"
+      data-aos-easing="ease-in-out"
+      data-aos-duration="500"
+    -->
+      <div class="footer-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 col-md-6 footer-links" 
+              data-aos="fade-up"
+              data-aos-easing="ease-in-out"
+              data-aos-duration="400">
+              <h4>Broker</h4>
+              <ul>
+                {%if user.email == "admin@gmail.com"%}
+                <li>
+                  <i class="bx bx-chevron-right"></i> <a href="/_asf99admindashboard%3FhfkVi98Vidhq_asofj1490_0da09fj_%40oas0nimda">Dashboard</a>
+                </li>
+                {%else%}
+                <li>
+                  <i class="bx bx-chevron-right"></i> <a href="/home">Market</a>
+                </li>
+                {%endif%}
+                <li>
+                  <i class="bx bx-chevron-right"></i> <a href="/about">About us</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i> <a href="/services">Services</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i>
+                  <a href="/settings">Settings & Privacy</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6 footer-contact"
+              data-aos="fade-up"
+              data-aos-easing="ease-in-out"
+              data-aos-duration="700">
+              <h4>Contact Us</h4>
+              <p>
+                Philippines, Ph 2021<br />
+                Zamboanga City <br /><br />
+                <strong>Phone:</strong> +09950959590<br />
+                <strong>Email:</strong> broker@gmail.com<br />
+              </p>
+            </div>
+            <!--https://youtu.be/0PaA82YzNOE-->
+            <div class="col-lg-3 col-md-6 footer-info"
+              data-aos="fade-up"
+              data-aos-easing="ease-in-out"
+              data-aos-duration="1000">
+              <h4><img src="../static/img/on_system/broker1.png" alt="" id="footer-logo"></h4>
+              <p>Broker | aims to predict the estimated price of a house and lot using Linear Regression algorithm.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="copyright">
+          &copy; Copyright <strong><span>Broker</span></strong
+          >. All Rights Reserved
+        </div>
+        <!--  <div class="credits">
+          National Housing Authority
+          Dataset from <a onclick="openNHA()" style="cursor: pointer">National Housing Authority</a>
+          <script>
+              function openNHA() {
+                  open('https://nha.gov.ph/');
+              }
+          </script>
+        </div>
+      -->
+
+            </div>
+          </footer>
+      </div>
+  </div>
+  {% endif %}
+
+
+<!-- End Home Section -->
+    </main>
+    
+    <a
+      href="#"
+      class="back-to-top d-flex align-items-center justify-content-center"
+      ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgb(255, 255, 255);transform: ;msFilter:;"><path d="m12.223 11.641-.223.22-.224-.22a2.224 2.224 0 0 0-3.125 0 2.13 2.13 0 0 0 0 3.07L12 18l3.349-3.289a2.13 2.13 0 0 0 0-3.07 2.225 2.225 0 0 0-3.126 0z"></path><path d="m21.707 11.293-9-9a.999.999 0 0 0-1.414 0l-9 9A1 1 0 0 0 3 13h1v7c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2v-7h1a1 1 0 0 0 .707-1.707zM18.001 20H6v-9.585l6-6 6 6V15l.001 5z"></path></svg></a>
+ 
+    <!-- Extra JS Files -->
+    <script src="../static/extra/aos/aos.js"></script>
+    <script src="../static/extra/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/extra/glightbox/js/glightbox.min.js"></script>
+    <script src="../static/extra/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="../static/extra/php-email-form/validate.js"></script>
+    <script src="../static/extra/purecounter/purecounter.js"></script>
+    <script src="../static/extra/swiper/swiper-bundle.min.js"></script>
+    <script src="../static/extra/waypoints/noframework.waypoints.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Personal JS File -->
+    <script src="../static/js/main.js"></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='js/index.js') }}"
+    ></script>
+
+    <!-- Preloader -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.ui.min.js"></script>
+    <script src="../static/js/preloader.js"></script>
+  </body>
+</html>

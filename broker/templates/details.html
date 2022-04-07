@@ -1,0 +1,155 @@
+{% extends "base.html" %} {% block title %}Property Information{% endblock %} {%
+block icon%}far fa-store{% endblock%} {% block icon1 %}far
+fa-calculator{%endblock%} {% block icon2 %}far fa-user-circle{%endblock%} {%
+block content %}
+            {%if user.email == "admin@gmail.com"%}
+              <script>
+                window.location.href = "/logout";
+              </script>
+            {%endif%}
+<div class="det">
+  <section class="breadcrumbs">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <h2 data-aos="fade-down">
+          <i class="fa fa-info-circle"></i> Property Details
+        </h2>
+        <ol>
+          <li>
+            <a href="/home"><i class="bi bi-chevron-left"></i> Home</a>
+          </li>
+          <li>
+            <a href="/my_profile"><i class="bi bi-chevron-left"></i> Profile</a>
+          </li>
+          <li>
+            <a href="/my_wishlist"><i class="bi bi-chevron-left"></i> My Wishlist</a>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Portfolio Details Section ======= -->
+  <section id="portfolio-details" class="portfolio-details" data-aos="fade">
+    <div class="container">
+      <div class="row gy-12">
+        <div class="col-lg-8">
+          <div class="portfolio-details-slider swiper-container">
+            {% for img in post_it %} {% if img.id == post.id%}
+            <div class="swiper-wrapper align-items-center" style="width: 50px">
+              <div class="swiper-slide">
+                <a
+                  href="../static/uploads/{{img.name}}"
+                  data-gallery="portfolioGallery"
+                  class="portfolio-lightbox"
+                  ><img src="../static/uploads/{{img.name}}" alt=""
+                /></a>
+              </div>
+
+              <div class="swiper-slide">
+                <a
+                  href="../static/uploads/{{img.name1}}"
+                  data-gallery="portfolioGallery"
+                  class="portfolio-lightbox"
+                  ><img src="../static/uploads/{{img.name1}}" alt=""
+                /></a>
+              </div>
+
+              <div class="swiper-slide">
+                <a
+                  href="../static/uploads/{{img.name2}}"
+                  data-gallery="portfolioGallery"
+                  class="portfolio-lightbox"
+                  ><img src="../static/uploads/{{img.name2}}" alt=""
+                /></a>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+        {% for own in owner %} {% if img.user_id == own.id %}
+        <div class="col-lg-4">
+          <div class="portfolio-info">
+            <center id="bg_details">
+                {% if user.id == own.id %}
+              <a
+                id="details_account"
+                href="/my_profile"
+                >
+                {%else%}
+              <a
+                id="details_account"
+                href="/account/000Ov@90a{{own.id}}07Xsg03awtVBQredirectid..."
+                >
+                {%endif%}
+              {% if own.name == 'None' %}
+              <img
+                src="../static/profile/userbw.png"
+                alt=""
+              />
+              {% elif own.name %}
+              <img
+                src="../static/profile/{{own.name}}"
+                alt=""
+              />
+              {% else %}
+              <img
+                src="../static/profile/userbw.png"
+                alt=""
+              />
+              {% endif %}
+              </a>
+            </center>
+            <br />
+            <ul>
+              <li>
+                <strong>Posted by:</strong>
+                {% if user.id == own.id %}
+                <a
+                  id="details_account"
+                  href="/my_profile"
+                  >{{ own.first_name + " " + own.last_name}}</a
+                >
+                {%else%}
+                <a
+                  id="details_account"
+                  href="/account/000Ov@90a{{own.id}}07Xsg03awtVBQredirectid..."
+                  >{{ own.first_name + " " + own.last_name}}</a
+                >
+                {%endif%}
+              </li>
+              {% for it in post_it %} {%if it.id == post.id%}
+              <li><strong>Date Posted:</strong> {{it.date_posted}}</li>
+              {% endif %} {% endfor%}
+              <li><strong>Contact No.:</strong> {{own.contact}}</li>
+              <li><button type="button" class="btn btn-danger btn-sm col-lg-12" style="cursor: text;">PHP {{post.price}}</button></li>
+            </ul>
+          </div>
+        </div>
+        {% endif %} {% endfor%}
+      </div>
+      {% endif %} {% endfor %}
+      <div class="row">
+        <div class="col-lg-12">
+          {% for it in post_it %} {%if it.id == post.id%}
+          <div class="portfolio-description">
+            <h2>{{it.title}}</h2>
+            <p class="text-justify" id="details_content">{{it.content}}</p>
+          </div>
+          {% endif%} {% endfor%}
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--<div class="dark-mode-vr">
+  <div class="col-lg-12">
+    <iframe src="/rotate" frameborder="0"></iframe>
+  </div>
+  <center>
+    <h4>360 Photo of Property</h4>
+  </center>
+</div>-->
+  <!--
+        -->
+  <!-- End Portfolio Details Section -->
+  {% endblock %}

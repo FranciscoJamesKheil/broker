@@ -1,0 +1,145 @@
+{% extends "base.html" %} {% block title %}Sale deed Form{% endblock %} {% block
+headtype %}header{% endblock%} {% block icon%}far fa-store{% endblock%} {% block
+icon1 %}far fa-calculator{%endblock%} {%block
+predict%}filter:grayscale(0){%endblock%} {% block icon2 %}far
+fa-user-circle{%endblock%} {% block content %} {%if user.email ==
+"admin@gmail.com"%}
+<script>
+  window.location.href = "/logout";
+</script>
+{%endif%}
+<!-- ======= Portfolio Section ======= -->
+<div class="det">
+  <section class="div-container">
+    <div class="container col-lg-10" id="form-section">
+        <a href="/predict"><i class="bi bi-chevron-left"></i> Back House & Lot</a>
+      <div
+        class="row portfolio-container"
+        data-aos="fade-up"
+        data-aos-easing="ease-in-out"
+        data-aos-duration="500"
+      >
+        <!--Total Price-->
+        <div class="div-container portfolio-wrap filter-total">
+          <img src="../static/img/on_system/Market launch-pana.svg" alt="" />
+          <div class="fields">
+            <h3>Sell Property</h3>
+            <p>Fill up all the form to post.</p>
+          </div>
+        </div>
+        <!--Total Price-->
+      </div>
+      <form
+        method="POST"
+        action="/upload_property"
+        enctype="multipart/form-data"
+      >
+        <input type="text" id="date" name="date" style="display: none;"/>
+
+        <script>
+          function startTime() {
+            var today = new Date();
+            var hr = today.getHours();
+            var min = today.getMinutes();
+            var sec = today.getSeconds();
+            ap = (hr < 12) ? "AM" : "PM";
+            hr = (hr == 0) ? 12 : hr;
+            hr = (hr > 12) ? hr - 12 : hr;
+            //Add a zero in front of numbers<10
+            hr = checkTime(hr);
+            min = checkTime(min);
+            sec = checkTime(sec);
+            
+            var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+            var curWeekDay = days[today.getDay()];
+            var curDay = today.getDate();
+            var curMonth = months[today.getMonth()];
+            var curYear = today.getFullYear();
+            var date = curWeekDay+", "+curDay+" "+curMonth+" "+curYear;
+            var time = hr + ":" + min + ":" + sec + " " + ap;
+            document.getElementById("date").value = date + "|" + time;
+            
+            var time = setTimeout(function(){ startTime() }, 500);
+        }
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+        </script>
+        <label for="title">Title</label>
+        <textarea
+          name="title"
+          id="title"
+          cols="20"
+          rows="2"
+          class="form-control"
+          style="font-size: 18px; font-weight: 600"
+        >
+Lot for sale in {{a}}</textarea
+        >
+        <label for="title">Description</label>
+        <textarea
+          name="content"
+          id="content"
+          cols="30"
+          rows="10"
+          class="form-control"
+        >
+Description:
+  *****add extra details
+        
+[Land Information]
+  Barangay: {{a}}
+  Land area: {{b}} sq/m
+  Classification: {{c}}</textarea>
+        <br />
+        <hr />
+        <p>Provide 3 images of the property</p>
+        <label for="">Image 1:</label>
+        <input type="file" name="pic" required />
+        <br />
+        <label for="">Image 2:</label>
+        <input type="file" name="pic1" required />
+        <br />
+        <label for="">Image 3:</label>
+        <input type="file" name="pic2" required />
+        <br />
+        <br />
+        <hr />
+        {%if prediction_alert %}
+        <label for="use">Possible House Price: PHP. {{prediction_alert}}</label>
+        <br />
+        <input type="checkbox" id="myCheck" onclick="myFunction()" /> Use price
+        {%endif%}
+        <br />
+        <label class="control-label">Price</label>
+        <input
+          class="form-control col-md-6"
+          type="text"
+          onkeypress="return isNumberKey(event)"
+          placeholder="PHP:"
+          name="price"
+          id="price"
+          required
+        />
+        <br />
+        <hr />
+        <button class="btn btn-info btn-md col-md-3" type="submit">Post</button>
+      </form>
+      <script>
+        function myFunction() {
+          var checkBox = document.getElementById("myCheck");
+          if (checkBox.checked == true) {
+            document.getElementById("price").value = "{{prediction_alert}}";
+          } else {
+            document.getElementById("price").value = "";
+          }
+        }
+      </script>
+    </div>
+  </section>
+  {% endblock %}
+</div>

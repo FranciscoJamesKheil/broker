@@ -1,0 +1,74 @@
+{% extends "base.html" %} {% block title %}Portfolio{% endblock %} {% block
+headtype %}header{% endblock%} {% block icon%}far fa-store-alt{% endblock%} {%
+block icon1 %}fa fa-calculator{%endblock%} {%block
+predict%}filter:grayscale(0){%endblock%} {% block icon2 %}far
+fa-user-circle{%endblock%} {% block content %} {%if user.email !=
+"admin@gmail.com"%}
+<script>
+  window.location.href = "/logout";
+</script>
+{%endif%}
+
+<!-- ======= Portfolio Section ======= -->
+<div class="det">
+  <section class="portfolio">
+    <div class="container">
+      <h3>Admin Dashboard</h3>
+      <hr />
+      <div class="admin_dash_button">
+        <button class="btn btn-light btn-sm">Members <span class="badge badge-danger">{{membersCount}}</span></button>
+      </div>
+      <!-- ======= Team Section ======= -->
+      <section
+        class="team"
+        data-aos="fade"
+        data-aos-easing="ease-in-out"
+        data-aos-duration="500"
+      >
+        <div class="container">
+          <div class="row  list-mem">
+            <!--Members-->
+            {%for member in members%}
+              {%if member.email != 'admin@gmail.com'%}
+              <div class="col-md-6 col-lg-3 d-flex align-items-stretch box-member">
+                <div class="member">
+                  <div class="member-img">
+                    {% if member.name == 'None' %}
+                    <img
+                      src="../static/profile/userbw.png"
+                      class="img-fluid"
+                      alt=""
+                    />
+                    {% elif member.name %}
+                    <img
+                      src="../static/profile/{{member.name}}"
+                      class="img-fluid"
+                      alt=""
+                    />
+                    {% else %}
+                    <img
+                      src="../static/profile/userbw.png"
+                      class="img-fluid"
+                      alt=""
+                    />
+                    {% endif %}
+                  </div>
+                  <div class="member-info">
+                    <h4 id="dashh4">{{member.first_name}} {{member.last_name}}</h4>
+                    <span id="dashinfo">{{member.email}}</span>
+                  </div>
+                  <div class="col-lg-12 d-flex">
+                    <button class="btn btn-info btn-sm col-lg-6"><i class="fa fa-info-circle"></i> View</button>
+                    <button class="btn btn-danger btn-sm col-lg-6"><i class="fa fa-trash"></i> Rem</button>
+                  </div>
+                </div>
+              </div>
+              {%endif%}
+            {%endfor%}
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
+  {% endblock %}
+</div>

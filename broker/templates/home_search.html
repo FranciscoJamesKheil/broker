@@ -1,0 +1,181 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block headtype
+%}header{% endblock%} {% block icon%}far fa-store-alt{% endblock%} {% block icon1
+%}far fa-calculator{%endblock%} {% block icon2 %}far fa-user-circle{%endblock%}
+{% block content %}
+<!-- ======= Sell Section ======= -->
+<!--{% if not post %}
+  <section class="breadcrumbs">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <h2 style="color: rgb(145, 145, 145)">No post yet..</h2>
+      </div>
+    </div>
+  </section>
+  {% endif %}-->
+<!-- End Our Portfolio Section -->
+<!-- ======= Home Section ======= -->
+            {%if user.email == "admin@gmail.com"%}
+              <script>
+                window.location.href = "/logout";
+              </script>
+            {%endif%}
+<div class="det">
+  <div class="div-container portfolio-wrap col-lg-12">
+    <div class="fields">
+      <h3>
+        {%if record == 0%} Sorry, we couldn't find any results for "{{find}}"
+        {%else%} Search results, {{record}} {%if
+        record>1%}results{%else%}result{%endif%} for "{{find}}" {%endif%}
+      </h3>
+      <p>Search barangay or description of the property..</p>
+    </div>
+    {%if record == 0%}
+    <img
+      src="../static/img/on_system/Shipwreck survivor-amico.png"
+      style="margin: 5px"
+      alt=""
+    />
+    {%else%}
+    <img src="../static/img/on_system/Treasure-rafiki.png" alt="" />
+    {%endif%}
+  </div>
+  {%if record > 0%}
+  <section class="div-container">
+    <div class="container">
+      <div
+        class="row col-lg-12"
+        data-aos="fade"
+        data-aos-easing="ease-in-out"
+        data-aos-duration="500"
+      >
+        {% for post in post %}
+          {% if find.lower() in post.title.lower() or find.lower() in post.content.lower()%}
+          <div class="field col-lg-12 col-md-6">
+            <div class="member">
+              <div class="member-info">
+                <div class="home_feed_profile">
+                  {% for profile in owner %}
+                    {%if post.user_id == ohitsme.id%}
+                      <a href="/my_profile"><span id="home_feed_cursor">
+                    {% elif profile.id == post.user_id%}
+                      <a href="/account/000Ov@90a{{profile.id}}07Xsg03awtVBQredirectid..."><span id="home_feed_cursor">
+                    {% endif %}
+                  {% endfor %}
+                  {% for pro in owner %} {% if pro.id == post.user_id%} {% if
+                  pro.name == 'None' %}
+                  <img
+                    src="../static/profile/userbw.png"
+                    style="
+                      width: 30px;
+                      height: 30px;
+                      margin-right: 8px;
+                      border-radius: 50%;
+                    "
+                    alt=""
+                  />
+                  {% elif pro.name %}
+                  <img
+                    src="../static/profile/{{pro.name}}"
+                    style="
+                      width: 30px;
+                      height: 30px;
+                      margin-right: 8px;
+                      border-radius: 50%;
+                    "
+                    alt=""
+                  />
+                  {% else %}
+                  <img
+                    src="../static/profile/userbw.png"
+                    style="
+                      width: 30px;
+                      height: 30px;
+                      margin-right: 8px;
+                      border-radius: 50%;
+                    "
+                    alt=""
+                  />
+                  {% endif %} {% endif %} {% endfor %} {% for owner in owner %} {%
+                  if owner.id == post.user_id %} {{ owner.first_name + " " +
+                  owner.last_name }} {% if owner.id == cur_id %}</a>
+                  <span class="badge badge-warning" id="span">{{"You"}}</span>{%
+                  endif %} {% endif %} {% endfor %}
+                  </span></a>
+                </div>
+                <h4>{{ post.title }}</h4>
+                <span
+                  >
+                  <time datetime="2021-08-01"
+                    >{% for owner in owner %} {% if owner.id == post.user_id %} {{
+                    post.date_posted }}
+                  </time></span
+                >
+              <p id="home_feed_content">{{ post.content[:60] }}<label id="dots{{post.id}}">... </label><span id="more{{post.id}}" class="more">{{ post.content[60:] }}</span><span class="readmorebtn" onclick="myFunction{{post.id}}()" id="myBtn{{post.id}}">Read more</span></p>
+              
+              <script>
+              function myFunction{{post.id}}() {
+                var dots = document.getElementById("dots{{post.id}}");
+                var moreText = document.getElementById("more{{post.id}}");
+                var btnText = document.getElementById("myBtn{{post.id}}");
+
+                if (dots.style.display === "none") {
+                  dots.style.display = "inline";
+                  btnText.innerHTML = "Read more"; 
+                  moreText.style.display = "none";
+                } else {
+                  dots.style.display = "none";
+                  btnText.innerHTML = "Read less"; 
+                  moreText.style.display = "inline";
+                }
+              }
+              </script>
+              </div>
+              <div class="member-img">
+                <img
+                  src="../static/uploads/{{post.name}}"
+                  class="img-fluid"
+                  alt=""
+                />
+              </div>
+              <div class="member-info">
+                <br />
+                <a href="/property_details/0z0OQv_1v@90a{{post.id}}07Xsg03awtVBQdetailsid..."
+                  ><button type="button" class="btn btn-info btn-sm">
+                    View info
+                  </button></a
+                >
+                
+                <button type="button" class="btn btn-danger btn-sm">PHP {{post.price}}</button>
+                {% endif %} {% endfor%} {% for owner in owner %} {% if owner.id
+                == post.user_id %}
+                <button
+                  type="button"
+                  onclick="contact_alert({{ owner.contact }})"
+                  class="btn btn-light btn-sm"
+                  data-toggle="tooltip"
+                  data-placement="bottom"
+                  title="Contact Agent"
+              >
+                <i class="fa fa-phone"></i></button
+                >{% endif %} {% endfor %}
+                    <a href="/add_wishlist/0aBYC={{post.id}}connectingUS={{user.id}}idUVcXqp={{post.user_id}}"
+                      class="btn btn-light btn-sm" 
+                      data-toggle="tooltip"
+                      data-placement="bottom"
+                      title="Add to Wishlist"
+                    >
+                  <div class="heart"></div>
+                  </a>
+              </div>
+            </div>
+          </div>
+          {%endif%}
+        {% endfor%}
+      </div>
+    </div>
+  </section>
+  {%endif%}
+  <br />
+  <br />
+  {% endblock %}
+</div>

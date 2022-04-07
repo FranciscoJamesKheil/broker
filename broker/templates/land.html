@@ -1,0 +1,146 @@
+{% extends "base.html" %} {% block title %}Land Form{% endblock %} {% block
+headtype %}header{% endblock%}
+{% block icon%}far fa-store-alt{% endblock%}
+{%block predict%}filter:grayscale(0){%endblock%}
+{% block icon1 %}fa fa-calculator{%endblock%}
+{% block icon2 %}far fa-user-circle{%endblock%}
+{% block content %}
+
+            {%if user.email == "admin@gmail.com"%}
+              <script>
+                window.location.href = "/logout";
+              </script>
+            {%endif%}
+
+<link href="../static/css/app.css" rel="stylesheet"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+<!-- ======= Portfolio Section ======= -->
+<div class="det">
+    <section class="div-container">
+      <div class="container col-lg-10" id="form-section">
+        <a href="/predict"><i class="bi bi-chevron-left"></i> Back House & Lot</a>
+        <br>
+          <!--House Price-->
+                <form method="post" action="/predict_land_price" class="col-lg-12" id="predHF">
+                    <div class="fields" id="predHL">
+                      <div class="p-head"
+                        data-aos="fade-up"
+                        data-aos-easing="ease-in-out"
+                        data-aos-duration="400">
+                        <div class="fields">
+                          <h3>Real Property Field Appraisal & Assessment Sheet - Land/Plants & Trees</h3>
+                          <p>Make your property price get predict by filling up the data.</p>
+                          <i>Note: Choices are fixed</i>
+                        </div>
+                        <img src="../static/img/on_system/Forest-cuate.png" alt="" />
+                      </div>
+                        <h5>Commercial, Residential, and Aggricultural</h5>
+                      <hr>
+                      <div class="panel-body">
+                        <div id="address">
+                          
+                          <div class="row">
+                            <div class="col-md-12">
+                              <h5>Classification</h5>
+                            </div>
+                            <div class="col-md-6">
+                              <label class="control-label">Property Used :</label>
+                              <select class="form-select form-select-md" onchange="changeFuncClassification()" name="classification" id="uiClassification" required>
+                                <option value="" disabled="disabled" selected="selected">
+                                  Property Used
+                                </option>
+                                <option value="residential">Residential</option>
+                                <option value="commercial">Commercial</option>
+                                <option value="others">--Others--</option>
+                              </select>
+                              <input class="form-control" type="text" name="classification1" id="uiTextClassification" placeholder="Please specify..."  style="display: none;"/>
+                            </div>
+                          </div>
+                          <br>
+                          <br>
+                          <div class="row">
+                              <h5>Land Reference</h5>
+                            <div class="col-md-6">
+                              <label class="control-label">Barangay :</label>
+                              <select class="form-select form-select-md" onchange="changeFuncBrgy()" name="brgy" id="uiBrgy" required>
+                                <option value="" disabled="disabled" selected="selected">
+                                  Choose Option
+                                </option>
+                                <option value="pasonanca">Pasonanca</option>
+                                <option value="zone 1">Zone 1</option>
+                                <option value="zone 2">Zone 2</option>
+                                <option value="zone 3">Zone 3</option>
+                                <option value="zone 4">Zone 4</option>
+                                <option value="santa maria">Santa Maria</option>
+                                <option value="tetuan">Tetuan</option>
+                                <option value="san jose gusu">San Jose Gusu</option>
+                                <option value="san roque">San Roque</option>
+                                <option value="tugbungan">Tugbungan</option>
+                                <option value="others">--Others--</option>
+                              </select>
+                              <input class="form-control" type="text" name="brgy1" id="uiTextBrgy" placeholder="Please specify..."  style="display: none;"/>
+                            </div>
+                            <div class="col-md-6">
+                              <label class="control-label">Land Area (sq/m)</label>
+                              <input class="form-control" type="text" onkeypress="return isNumberKey(event)"  name="land_area" id="uiLand" required/>
+                            </div>
+                          </div> <!-- Location and Land Reference -->
+                          <br>
+                          <br>
+                          <div class="row">
+                            <center>
+                              
+                            <div class="col-md-12">
+                            <lottie-player id="secondLottie" src="https://assets10.lottiefiles.com/packages/lf20_myryne1p/lottie_step1/data.json" style="width:60%">"></lottie-player>
+                            <p>-- Data is ready for prediction --</p>
+                            <div class="col-md-7">
+                              <button type="submit" class="btn btn-primary btn-md" id="predict-continue">Continue</button>
+                            </div>
+                            </div>
+                            </center>
+                          </div>
+                    </div>
+          </form>
+      </div>
+    </section>
+  
+<script>
+  
+    // Draggable Images Construction
+    var div = $("#draggable");
+    $(function () {
+      div.draggable();
+    });
+
+    div.dblclick(function () {
+      div.fadeOut(500);
+    });
+
+    $("body").dblclick(function () {
+      if (div.css("display") == "none") div.fadeIn(500);
+    });
+
+</script>
+
+
+
+<script>
+LottieInteractivity.create({
+    mode:"scroll",
+    player: "#secondLottie",
+    container: "#MyContainerId",
+    actions: [
+        {
+            visibility:[0,1.8],
+            type: "seek",
+            frames: [0, 179]
+        }
+    ]
+});
+</script>
+<script src="../static/js/others.js"></script>
+<!-- End con Section -->
+{% endblock %}
+

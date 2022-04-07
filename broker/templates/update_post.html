@@ -1,0 +1,136 @@
+{% extends "base.html" %} {% block title %}Update Post{% endblock %} {% block
+headtype %}header{% endblock%} {% block icon%}far fa-home{% endblock%} {% block
+icon1 %}fa fa-calculator{%endblock%} {% block icon2 %}far
+fa-user-circle{%endblock%} {% block content %} {%if user.email ==
+"admin@gmail.com"%}
+<script>
+  window.location.href = "/logout";
+</script>
+{%endif%}
+<!-- ======= Portfolio Section ======= -->
+<div class="det">
+  <section class="portfolio">
+    <div class="container">
+      <a href="/my_profile"
+        ><i class="fa fa-chevron-left"></i> Back to Profile</a
+      >
+      <div
+        class="row portfolio-container"
+        data-aos="fade-up"
+        data-aos-easing="ease-in-out"
+        data-aos-duration="500"
+      >
+        <!--Total Price-->
+        <div class="div-container portfolio-wrap filter-total">
+          <img src="../static/img/on_system/Market launch-pana.svg" alt="" />
+          <div class="fields">
+            <h3>Update Post</h3>
+            <p>Update your post...</p>
+          </div>
+        </div>
+      </div>
+      <form
+        method="POST"
+        action="/update_post/{{post.id}}"
+        enctype="multipart/form-data"
+      >
+        <input type="text" id="date" name="date" style="display: none;"/>
+
+        <script>
+          function startTime() {
+            var today = new Date();
+            var hr = today.getHours();
+            var min = today.getMinutes();
+            var sec = today.getSeconds();
+            ap = (hr < 12) ? "AM" : "PM";
+            hr = (hr == 0) ? 12 : hr;
+            hr = (hr > 12) ? hr - 12 : hr;
+            //Add a zero in front of numbers<10
+            hr = checkTime(hr);
+            min = checkTime(min);
+            sec = checkTime(sec);
+            
+            var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+            var curWeekDay = days[today.getDay()];
+            var curDay = today.getDate();
+            var curMonth = months[today.getMonth()];
+            var curYear = today.getFullYear();
+            var date = curWeekDay+", "+curDay+" "+curMonth+" "+curYear;
+            var time = hr + ":" + min + ":" + sec + " " + ap;
+            document.getElementById("date").value = date + "|" + time;
+            
+            var time = setTimeout(function(){ startTime() }, 500);
+        }
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+        </script>
+        <label for="title">Title</label>
+        <textarea
+          name="title"
+          id="title"
+          cols="20"
+          rows="2"
+          class="form-control"
+          style="font-size: 18px; font-weight: 600"
+        >
+{{post.title}}</textarea
+        >
+        <label for="title">Description</label>
+        <textarea
+          name="content"
+          id="content"
+          cols="30"
+          rows="10"
+          class="form-control"
+        >
+{{post.content}}</textarea
+        >
+        <br />
+        <p>Provide 3 images of the property</p>
+        <label for="">Image 1:</label>
+        <img src="../static/uploads/{{post.name}}" alt="" style="width: 100%" />
+        <br />
+        <input type="file" name="pic" required />
+        <br />
+        <label for="">Image 2:</label>
+        <img
+          src="../static/uploads/{{post.name1}}"
+          alt=""
+          style="width: 100%"
+        />
+        <br />
+        <input type="file" name="pic1" required />
+        <br />
+        <label for="">Image 3:</label>
+        <img
+          src="../static/uploads/{{post.name2}}"
+          alt=""
+          style="width: 100%"
+        />
+        <br />
+        <input type="file" name="pic2" required />
+        <br />
+        <br />
+        <label class="control-label">Price</label>
+        <input
+          type="text"
+          class="form-control col-lg-4"
+          placeholder="PHP:"
+          value="{{post.price}}"
+          name="price"
+          onkeypress="return isNumberKey(event)"
+        />
+        <br />
+        <br />
+        <button class="submit btn btn-info" type="submit">Update Post</button>
+      </form>
+    </div>
+  </section>
+
+  {% endblock %}
+</div>

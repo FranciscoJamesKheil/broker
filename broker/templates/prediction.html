@@ -1,0 +1,85 @@
+{% extends "base.html" %} {% block title %}Portfolio{% endblock %} {% block
+headtype %}header{% endblock%} {% block icon%}far fa-store-alt{% endblock%} {%
+block icon1 %}fa fa-calculator{%endblock%} 
+{%block predict%}filter:grayscale(0){%endblock%}
+{% block icon2 %}far
+fa-user-circle{%endblock%} {% block content %}
+            {%if user.email == "admin@gmail.com"%}
+              <script>
+                window.location.href = "/logout";
+              </script>
+            {%endif%}
+<!-- ======= Portfolio Section ======= -->
+<div class="det">
+  <section class="portfolio">
+    <div class="container">
+      <h3>Choose you want to Sell property:</h3>
+      <div class="row">
+        <div class="col-lg-12">
+          <ul id="portfolio-filters">
+            <li class="col-lg-5">
+              <a href="/house_predict">
+                <lottie-player
+                  id="ninthLottie"
+                  src="https://assets9.lottiefiles.com/packages/lf20_zjRltW.json"
+                  width="100%"
+                  >"></lottie-player
+                >
+                House
+              </a>
+            </li>
+            <li class="col-lg-5">
+              <a href="/land_predict">
+                <lottie-player
+                  id="ninthLottie1"
+                  src="https://assets9.lottiefiles.com/packages/lf20_6s3tkzbq.json"
+                  width="100%"
+                  >"></lottie-player
+                >
+                Land
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    LottieInteractivity.create({
+      player: "#ninthLottie",
+      mode: "cursor",
+      actions: [
+        {
+          position: { x: [0, 1], y: [-1, 2] },
+          type: "seek",
+          frames: [0, 113],
+        },
+        {
+          position: { x: -1, y: -1 },
+          type: "stop",
+          frames: [0],
+        },
+      ],
+    });
+
+    LottieInteractivity.create({
+      player: "#ninthLottie1",
+      mode: "cursor",
+      actions: [
+        {
+          position: { x: [0, 1], y: [-1, 2] },
+          type: "seek",
+          frames: [0, 510],
+        },
+        {
+          position: { x: -1, y: -1 },
+          type: "stop",
+          frames: [0],
+        },
+      ],
+    });
+  </script>
+
+  {% endblock %}
+</div>

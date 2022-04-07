@@ -1,0 +1,145 @@
+Property ,Barangay,Land Area,Floor Area,Classification,No. of storey,Structural Type,Roof Framing,Roofing,Exterior Walls,Flooring,Doors,Ceiling,Windows,Stairs,Wall Finish,Electrical Conduit,Toilet & Bowl,Plumbing,Market Value
+Property 1,Canelar,665,354.08,Residential,2,2-A,Steel,GI,Cement Plaster,Tiles,WOOD,Plywood,Glass,CONC.,Cement Plaster,PVC,Tiles,PVC,1000000
+Property 2,Canelar,104,71.25,Residential,1,3-A,Steel,Long Span,CHB,Tiles,WOOD,Plywood,Alum. Casement,CONC.,Plain Cement Paint,Polyflex,Tiles,PVC,413000
+Property 3,Canelar,406,210.3,Residential,1,,Steel,GI,CHB,Tiles,WOOD,Plywood,Glass,CONC.,Cement Plaster,PVC,Tiles,PVC,727910
+Property 4,Canelar,240,81,Residential,1,2-A,Steel,Long Span,CHB,Tiles,WOOD,Plywood,Alum. Casement,CONC.,Cement Plaster,Polyflex,Tiles,PVC,610000
+Property 5,Santa Maria,314,1314,Commercial,4,2-A,Steel,GI,CHB,Tiles,Flush,,Alum. Casement,CONC.,Cement Plaster,PVC,Tiles,GI,7393688
+Property 6,Santa Maria,300,98.83,Residential,2,2-A,Steel,Long Span,CHB,Tiles,WOOD,Plywood,Glass,,CHB,PVC,Tiles,PVC,560650
+Property 7,Santa Maria,206,111.26,Residential,2,,Steel,GI,CHB,Tiles,WOOD,Wood,Glass,CONC.,Cement Plaster,PVC,Tiles,PVC,1000000
+Property 8,Santa Maria,300,81,Residential,2,2-A,Wooden,GI,CHB,Tiles,PANEL,Plywood,Jalousie,,Plain Cement Paint,Conduit Pipe,Tiles,PVC,400000
+Property 9,Santa Maria,237,160,Residential,1,2-B,Wooden,GI,CHB,Concrete,ROLL UP,Plywood,Jalousie,WOODEN,CHB,Polyflex,CHB,PVC,440320
+Property 10,Santa Maria,300,106.4,Residential,2,3-A,Wooden,GI,Cement Plaster,Concrete,Flush,Plywood,Wood,WOODEN,CHB,Open,CHB,PVC,505400
+Property 11,Santa Maria,300,25.6,Residential,2,3-A,Wooden,GI,Cement Plaster,Concrete,Flush,Plywood,Wood,WOODEN,CHB,Open,CHB,PVC,132860
+Property 12,Santa Maria,300,189.75,Residential,2,3-A,Wooden,GI,Cement Plaster,Tiles,WOOD,Plywood,Glass,WOODEN,CHB,PVC,Tiles,PVC,788630
+Property 13,Santa Maria,137,40,Residential,1,2-B,Steel,GI,CHB,Concrete,WOOD,Plywood,Glass,,Cement Plaster,Polyflex,Tiles,PVC,230000
+Property 14,Santa Maria,688,97.7,Residential,1,3-A,Wooden,GI,CHB,Concrete,WOOD,Plywood,Glass,WOODEN,CHB,PVC,Tiles,PVC,423000
+Property 15,Santa Maria,851,98,Residential,1,2-B,Lumber,GI,CHB,Tiles,Flush,Plywood,Jalousie,,Plain Cement Paint,Polyflex,Tiles,PVC,400000
+Property 16,Santa Maria,138,99.12,Residential,2,2-A,Wooden,Long Span,Cement Plaster,Tiles,WOOD,Plywood,Glass,RC,Cement Plaster,PVC,Tiles,PVC,638080
+Property 17,Santa Maria,150,48.8,Residential,1,2-A,Steel,GI,CHB,Tiles,WOOD,Wood,Glass,,Cement Plaster,PVC,Tiles,PVC,320616
+Property 18,Santa Maria,,164.63,Residential,2,2-A,Steel,Long Span,Cement Plaster,Tiles,PANEL,Plywood,Glass,RC,Cement Plaster,PVC,Tiles,PVC,1081620
+Property 19,Santa Maria,322,79,Residential,2,2-A,Wooden,GI,CHB,Concrete,PANEL,Plywood,Jalousie,WOODEN,Cement Plaster,PVC,Tiles,GI,300000
+Property 20,Santa Maria,600,110,Residential,2,3-B,Wooden,GI,Wood,Concrete,WOOD,Wood,Wood,WOODEN,Plain Cement Paint,PVC,CHB,,528000
+Property 21,Santa Maria,800,140,Residential,1,2-B,RC,Long Span,CHB,Tiles,Plywood,Plywood,Jalousie,,Plain Cement Paint,PVC,Tiles,PVC,534896.25
+Property 22,Santa Maria,200,63,Residential,1,3-A,Wooden,GI,Cement Plaster,Concrete,WOOD,Wood,Jalousie,,Cement Plaster,PVC,Tiles,,200000
+Property 23,Santa Maria,500,164,Residential,1,2-B,Steel,Long Span,CHB,Tiles,WOOD,Plywood,Glass,,CHB,PVC,Tiles,PVC,970000
+Property 24,Santa Maria,150,71.5,Residential,1,2-A,Steel,GI,CHB,Tiles,PANEL,Plywood,Glass,,CHB,Polyflex,Tiles,PVC,700000
+Property 25,Santa Maria,324,176,Residential,2,2-A,Steel,GI,CHB,Tiles,Flush,Plywood,Glass,CONC.,Plain Cement Paint,UPVC,Tiles,PVC,861984
+Property 26,Santa Maria,,356,Residential,1,3-A,Wooden,GI,CHB,Concrete,Flush,Plywood,Jalousie,,,,,,1200000
+Property 27,Santa Maria,361,175,Residential,2,2-A,Steel,Long Span,CHB,Tiles,WOOD,Plywood,Alum. Casement,RC,Plain Cement Paint,Polyflex,Tiles,PVC,1100000
+Property 28,Santa Maria,200,89.25,Residential,1,2-A,Steel,Long Span,CHB,Tiles,PANEL,Plywood,Glass,CONC.,CHB,PVC,Tiles,PVC,590000
+Property 29,Tetuan,312,50.6,Residential,1,2-A,Wooden,GI,CHB,Concrete,Flush,Plywood,Steel Casement,,CHB,Polyflex,Tiles,PVC,265000
+Property 30,Tetuan,99,98,Residential,2,,Lumber,GI,CHB,Tiles,Flush,Plywood,Jalousie,WOODEN,Plain Cement Paint,Polyflex,Tiles,PVC,371038
+Property 31,Tetuan,327,340,Residential,2,2-A,Steel,Long Span,CHB,Tiles,Flush,Plywood,Glass,RC,CHB,PVC,Tiles,PVC,2400000
+Property 32,Tetuan,224,84,Residential,1,2-A,Steel,Long Span,CHB,Tiles,PANEL,Plywood,Steel Casement,,Cement Plaster,PVC,Tiles,PVC,522320
+Property 33,Tetuan,642,103.31,Residential,1,2-A,Wooden,GI,CHB,Tiles,WOOD,Plywood,Glass,,CHB,PVC,Tiles,PVC,678750
+Property 34,Tetuan,140,137.2,Residential,2,2-A,Steel,Long Span,CHB,Tiles,Flush,Plywood,Glass,RC,CHB,PVC,Tiles,PVC,850000
+Property 35,Tetuan,123,168.4,Residential,2,3-A,Lumber,GI,CHB,Concrete,Flush,Plywood,Jalousie,WOODEN,Plain Cement Paint,Polyflex,CHB,PVC,568410
+Property 36,Tetuan,150,63.25,Residential,1,,Lumber,GI,CHB,Concrete,Flush,Plywood,Jalousie,,Plain Cement Paint,Polyflex,CHB,PVC,310751
+Property 37,Tetuan,140,137.2,Residential,2,2-A,Steel,Long Span,CHB,Tiles,Flush,Plywood,Glass,RC,CHB,PVC,Tiles,PVC,850000
+Property 38,Tetuan,90,90.6,Residential,2,2-A,Steel,Long Span,CHB,Tiles,PANEL,Plywood,Glass,RC,Cement Plaster,PVC,Tiles,PVC,560550
+Property 39,Tetuan,277,130,Residential,1,3-A,Lumber,GI,Wood,Tiles,HCPD/WFPD,Plywood,Glass,RC,Cement Plaster,PVC,Tiles,GI,176000
+Property 40,Tetuan,273,250,Residential,2,2-B,RC,Concrete,Cement Plaster,Concrete,WOOD,Plywood,Glass,CONC.,Cement Plaster,PVC,Tiles,PVC,500000
+Property 41,Tetuan,350,272,Residential,3,2-B,Steel,GI,CHB,Concrete,PANEL,Unfinished,Glass,CONC.,CHB,Polyflex,Tiles,PVC,680000
+Property 42,Tetuan,961,192.75,Residential,2,2-A,Steel,GI,CHB,Concrete,HCPD/WFPD,Plywood,SCFW,,Cement Plaster,Conduit Pipe,Tiles,PVC,507000
+Property 43,Tetuan,961,48,Residential,1,3-B,Lumber,GI,Wood,Concrete,WOOD,Plywood,Wood,RC,Cement Plaster,Open,CHB,Open,179700
+Property 44,Tetuan,301,140,Residential,1,3-A,Wooden,GI,CHB,Concrete,PANEL,Plywood,Glass,,Cement Plaster,PVC,Tiles,PVC,494090
+Property 45,Tetuan,403,207.54,Residential,1,2-A,Steel,S-Tile,CHB,Tiles,HCPD/WFPD,Plywood,WFPD,,Cement Plaster,Conduit Pipe,Tiles,PVC,450000
+Property 46,Tetuan,633,108,Residential,1,2-A,Wooden,GI,CHB,Tiles,PANEL,Plywood,Glass,,ADOBE,Conduit Pipe,Tiles,GI,280000
+Property 47,Tetuan,250,66.55,Residential,1,2-B,Lumber,GI,PAINTED,Wood,Flush,Plywood,Jalousie,WOODEN,Plain Cement Paint,PVC,Tiles,PVC,185000
+Property 48,Tetuan,217,324.79,Residential,2,1-B,Steel,Long Span,CHB,Tiles,WOOD,Plywood,Glass,RC,CHB,PVC,CHB,PVC,1700000
+Property 49,Tetuan,200,245.26,Residential,2,2-A,Steel,Long Span,CHB,Tiles,Flush,Plywood,Glass,RC,CHB,PVC,Tiles,PVC,1300000
+Property 50,Tetuan,150,353.76,Residential,3,2-A,Steel,Long Span,Cement Plaster,Tiles,WOOD,Plywood,Glass,RC,CHB,PVC,Tiles,PVC,2324200
+Property 51,Tetuan,247,637,Residential,3,2-A,Steel,Long Span,Cement Plaster,Tiles,WOOD,Wood,Steel Casement,RC,Cement Plaster,PVC,Tiles,PVC,2854000
+Property 52,Tetuan,2000,435,Commercial,1,2-B,,Concrete,Cement Plaster,Tiles,ROLL UP,,Glass,,Cement Plaster,PVC,Tiles,PVC,1776670
+Property 53,San Jose Gusu,65,10.5,Residential,1,,Lumber,GI,CHB,Concrete,Flush,,Jalousie,,Cement Plaster,Polyflex,CHB,PVC,60270
+Property 54,San Jose Gusu,141,45.5,Residential,1,,Lumber,GI,Wood,Wood,WOOD,,Jalousie,WOODEN,,PDX,CHB,PVC,185600
+Property 55,San Jose Gusu,160,81.15,Residential,1,,Lumber,GI,CHB,Concrete,Flush,,Jalousie,,,Polyflex,CHB,PVC,238190
+Property 56,San Jose Gusu,139,119.88,Residential,1,,Lumber,GI,CHB,Concrete,Flush,Plywood,French Window,,Plain Cement Paint,Polyflex,CHB,PVC,345254
+Property 57,San Jose Gusu,68,47.15,Residential,1,,Lumber,GI,CHB,Concrete,Flush,,French Window,,Plain Cement Paint,Polyflex,CHB,PVC,226500
+Property 58,San Jose Gusu,150,83.85,Residential,1,,Lumber,GI,CHB,Concrete,Flush,Plywood,Jalousie,,,Polyflex,CHB,PVC,321984
+Property 59,San Jose Gusu,69,147.16,Residential,2,,Lumber,GI,CHB,Concrete,Flush,,Jalousie,WOODEN,Plain Cement Paint,PDX,CHB,PVC,353184
+Property 60,San Jose Gusu,138,126.3,Residential,2,,C-Purlins,GI,CHB,Concrete,Flush,Plywood,Jalousie,CONC.,Plain Cement Paint,Polyflex,CHB,PVC,356933
+Property 61,San Jose Gusu,81,143,Residential,2,,Lumber,GI,CHB,Tiles,Flush,Plywood,Jalousie,CONC.,Plain Cement Paint,Polyflex,Tiles,PVC,326304
+Property 62,San Jose Gusu,52,42.4,Residential,1,,Lumber,GI,CHB,Concrete,Flush,,Jalousie,,CHB,Polyflex,CHB,PVC,203520
+Property 63,San Jose Gusu,63,26,Residential,1,,Lumber,GI,CHB,Concrete,Flush,,Jalousie,WOODEN,,PDX,CHB,PVC,124800
+Property 64,San Jose Gusu,156,85.5,Residential,1,,Lumber,GI,CHB,Tiles,Flush,Plywood,Jalousie,,Plain Cement Paint,Polyflex,CHB,PVC,320292
+Property 65,San Jose Gusu,48,82.5,Residential,2,,Lumber,GI,CHB,Concrete,Flush,,Jalousie,CONC.,,PDX,CHB,PVC,277200
+Property 66,San Jose Gusu,168,68,Residential,1,,Lumber,GI,CHB,Concrete,Flush,Plywood,Jalousie,,CHB,PDX,CHB,PVC,326400
+Property 67,San Jose Gusu,206,191.92,Residential,2,2-B,Steel,Long Span,CHB,Tiles,WOOD,Plywood,Glass,RC,CHB,PVC,Tiles,PVC,973250
+Property 68,San Jose Gusu,413,156.9,Residential,1,2-B,Steel,Long Span,CHB,Tiles,WOOD,Plywood,Glass,,CHB,PVC,Tiles,PVC,857560
+Property 69,San Jose Gusu,412,199.6,Residential,2,2-B,Steel,Long Span,CHB,Tiles,WOOD,Plywood,Glass,RC,CHB,PVC,Tiles,PVC,984290
+Property 70,San Jose Gusu,242,154.2,Residential,2,3-A,Wooden,GI,CHB,Tiles,WOOD,Plywood,Glass,RC,CHB,,,,773050
+Property 71,San Jose Gusu,416,244.35,Residential,2,2-B,Steel,Long Span,CHB,Tiles,WOOD,Plywood,Glass,RC,CHB,,,,1135840
+Property 72,San Jose Gusu,141,40,Residential,1,3-A,Wooden,GI,CHB,Tiles,WOOD,Plywood,Glass,,Plain Cement Paint,Polyflex,Tiles,PVC,192000
+Property 73,San Jose Gusu,141,48,Residential,1,3-B,Wooden,GI,CHB,Tiles,WOOD,Plywood,Glass,,Plain Cement Paint,Polyflex,Tiles,PVC,230400
+Property 74,San Jose Gusu,75,51,Residential,1,3-B,Wooden,GI,CHB,Tiles,WOOD,Plywood,Glass,,Plain Cement Paint,Polyflex,Tiles,PVC,240000
+Property 75,San Jose Gusu,88,63,Residential,2,3-B,Wooden,GI,CHB,Concrete,WOOD,,Glass,WOODEN,,Open,CHB,PVC,195000
+Property 76,San Jose Gusu,58,42,Residential,1,3-B,Wooden,GI,CHB,Concrete,WOOD,,Glass,,Cement Plaster,Polyflex,CHB,PVC,182000
+Property 77,San Jose Gusu,765,111.8,Residential,1,2-B,Wooden,GI,CHB,Concrete,WOOD,Plywood,Glass,,CHB,,,,613720
+Property 78,San Jose Gusu,765,204.5,Residential,2,2-B,Steel,Long Span,Cement Plaster,Tiles,WOOD,Plywood,Glass,,CHB,PVC,Tiles,PVC,952040
+Property 79,San Jose Gusu,42,90,Residential,2,,Lumber,GI,CHB,Tiles,Flush,Plywood,Jalousie,,,PDX,Tiles,PVC,361620
+Property 80,San Jose Gusu,765,111.8,Residential,1,3-A,Wooden,GI,CHB,Concrete,WOOD,Plywood,Glass,,CHB,,,,569730
+Property 81,San Jose Cawa Cawa,200,264,Residential,2,2-A,Open Deck,Open Deck,CHB,Tiles,Flush,,Jalousie,CONC.,Plain Cement Paint,Polyflex,Tiles,PVC,1000000
+Property 82,San Jose Cawa Cawa,706,96,Residential,1,3-B,Wooden,GI,Wood,Wood,WOOD,Wood,Wood,,WOOD,PVC,WOOD,PVC,297600
+Property 83,San Jose Cawa Cawa,101,180,Residential,3,2-A,C-Purlins,GI,CHB,Tiles,Flush,,Steel Casement,CONC.,Plain Cement Paint,Polyflex,TILES,PVC,750000
+Property 84,San Jose Cawa Cawa,194.5,123.51,Residential,2,2-B,Wooden,GI,Wood,Concrete,PANEL,Plywood,Jalousie,WOODEN,Cement Plaster,MOULDFLEX,TILES,GI,549600
+Property 85,San Jose Cawa Cawa,588,160,Residential,1,,Wooden,GI,CHB,Tiles,WOOD,Plywood,Jalousie,,Cement Plaster,PVC,TILES ,PVC,176000
+Property 86,San Jose Cawa Cawa,255,160,Residential,2,2-A,Wooden,GI,CHB,Concrete,HCPD/WFPD,Plywood,,,Cement Plaster,Polyflex,TILES,GI,225000
+Property 87,San Jose Cawa Cawa,194,192,Residential,2,3-B,Wooden,GI,ADOBE TYPE,Tiles,WOOD,Wood,Glass,CONC.,ADOBE,PVC,TILES,GI,629472
+Property 88,San Jose Cawa Cawa,588,160,Residential,1,,Wooden,GI,CHB,Tiles,WOOD,Plywood,Glass,,Cement Plaster,PVC,TILES,PVC,176000
+Property 89,San Jose Cawa Cawa,76,150,Residential,1,,Wooden,GI,Wood,Concrete,WOOD,,Wood,,,Open,CHB,PVC,20000
+Property 90,San Jose Cawa Cawa,65,66,Residential,1,3-B,Wooden,CORR./ GI,Wood,Concrete,WOOD,,Jalousie,,WOOD,Open,CHB,PVC,285120
+Property 91,San Jose Cawa Cawa,103,108,Residential,1,,Steel,GI,CHB,Concrete,Flush,Plywood,Steel Casement,WOODEN,Cement Plaster,CONCEALED,TILES,GI,4350
+Property 92,PUTIK,120,56,Residential,1,2-B,Wooden,GI,CHB,Concrete,PANEL,Plywood,Wood,WOODEN ,Cement Plaster,TUBE,CHB,PVC,200000
+Property 93,PUTIK,442,266.7,Residential,2,2-B,Steel,Long Span,CHB,Concrete,PANEL,Plywood,Alum. Casement,RC,Cement Plaster,Polyflex,TILES,GI,1430000
+Property 94,PUTIK,200,90,Residential,2,3-A,Lumber,GI,Wood,Wood,Flush,Plywood,Jalousie,WOODEN,WOOD,Polyflex,CHB,GI,279000
+Property 95,PUTIK,120,39.6,Residential,1,,Steel,GI,CHB,Concrete,WOOD,Plywood,Jalousie,,Cement Plaster,Polyflex,TILES,GI,200000
+Property 96,PUTIK,120,144,Residential,2,1-B,RC,GI,CHB,Concrete,WOOD,RC,Steel Casement,RC,Cement Plaster,PVC,TILES,PVC,662400
+Property 97,PUTIK,180,74.2,Residential,1,2-B,GI/STEEL,PLYWOOD,Cement Plaster,Wood,,,Wood,,Cement Plaster,Open,,,76000
+Property 98,PUTIK,300,156,Residential,2,2-A,Steel,Long Span,CHB,Concrete,PANEL,Plywood,Steel Casement,RC,Cement Plaster,Polyflex,TILES,GI,800000
+Property 99,PUTIK,340,90,Residential,2,2-A,Steel,Long Span,CHB,Concrete,PANEL,Plywood,Steel Casement,RC,Cement Plaster,Polyflex,TILES,GI,400000
+Property 100,PUTIK,297,150.8,Residential,2,2-B,Steel,Long Span,CHB,Concrete,PANEL,Plywood,Glass,RC,Cement Plaster,Polyflex,TILES,GI,710000
+Property 101,PUTIK,,172,Residential,2,,Wooden,GI,CHB,Concrete,WOOD,,,RC,Cement Plaster,Polyflex,TILES,PVC,500000
+Property 102,PUTIK,,39,Residential,1,2-A,Steel,GI,CHB,Concrete,PANEL,Plywood,Jalousie,,Cement Plaster,Polyflex,TILES,GI,200000
+Property 103,Divisoria,350,88,Residential,2,2-B,Wooden,GI,CHB,Concrete,PANEL,Plywood,Jalousie,WOODEN,Cement Plaster,TUBE,TILES,GI,400000
+Property 104,San Jose Cawa Cawa,176,55.2,Residential,2,3-B,Lumber,GI,CHB,Concrete,Flush,,Wood,WOODEN,,PDX,CHB,GI,230000
+Property 105,San Jose Cawa Cawa,176,112.8,Residential,2,2-B,Lumber,GI,CHB,Concrete,Flush,Plywood,Jalousie,CONC.,Plain Cement Paint,Polyflex,TILES,GI,485040
+Property 106,Canelar,436,340,Residential,2,2-B,Steel,CORR./ GI,CHB,Concrete,ROLL UP,Plywood,Steel Casement,RC,Cement Plaster,Polyflex,TILES,PVC,1760000
+Property 107,Canelar,250,109,Residential,1,2-A,Steel,CORR./ GI,CHB,Tiles,HCPD/WFPD,Plywood,SCFW,RC,Plain Cement Paint,Polyflex,TILES,GI,600000
+Property 108,Canelar,300,72,Residential,1,2-B,Wooden,CORR./ GI,CHB,Tiles,WOOD,Plywood,Alum. Casement,RC,Cement Plaster,Polyflex,TILES,PVC,415000
+Property 109,Canelar,787,79.8,Residential,2,,C-Purlins,GI,CHB,Tiles,Flush,Plywood,Glass,WOODEN,Plain Cement Paint,Polyflex,TILES,GI,500000
+Property 110,Canelar,428,232.86,Residential,2,2-A,Steel,GI,CHB,Tiles,WOOD,Plywood,Glass,RC,CHB,PVC,TILES,PVC,988230
+Property 111,Canelar,138,94.49,Residential,2,2-B,Steel,GI,CHB,Tiles,Flush,Plywood,Glass,CONC.,Plain Cement Paint,UPVC,TILES,PVC,542372
+Property 112,San Jose Cawa Cawa,500,68.81,Residential,1,2-A,Steel,Long Span,CHB,Tiles,WOOD,Plywood,Glass,WOODEN,CHB,PVC,TILES,PVC,452080
+Property 113,Canelar,250,109,Residential,1,2-A,Steel,CORR./ GI,CHB,Tiles,HCPD/WFPD,Plywood,SCFW,RC,Plain Cement Paint,Polyflex,TILES,GI,600000
+Property 114,Canelar,450,140,Residential,1,,Steel,GI,CHB,Tiles,PANEL,Plywood,Glass,RC,Cement Plaster,PVC,TILES,PVC,585000
+Property 115,Canelar,794,95.05,Residential,1,3-B,,CORR./ GI,CHB,Concrete,WOOD,Plywood,Jalousie,WOODEN,,Polyflex,CHB,GI,395000
+Property 116,Canelar,191,102,Residential,2,2-B,Lumber,GI,CHB,Wood,Plywood,Plywood,Jalousie,RC,SAND BLAST,,TILES,,250000
+Property 117,Divisoria,307,54,Residential,1,2-B,Wooden,GI,CHB,Concrete,PANEL,Plywood,Jalousie,RC,Cement Plaster,TUBE,CHB,GI,120000
+Property 118,Divisoria,351,45,Residential,1,,Wooden,GI,CHB,Wood,WOOD,Plywood,Wood,RC,Cement Plaster,UPVC,TILES,PVC,110700
+Property 119,Divisoria,180,98.5,Residential,1,2-B,Wooden,GI,CHB,Concrete,PANEL,Plywood,Wood,WOODEN,Cement Plaster,Polyflex,TILES,GI,310000
+Property 120,Divisoria,200,58.35,Residential,1,2-A,Steel,CORR./ GI,CHB,Concrete,HCPD/WFPD,Plywood,SCFW,RC,Cement Plaster,Polyflex,TILES,GI,230000
+Property 121,Divisoria,242,46.22,Residential,1,2-A,Steel,GI,PAINTED,Tiles,WOOD,Plywood,Wood,RC,Plain Cement Paint,PVC,TILES,PVC,305830
+Property 122,Divisoria,242,60.62,Residential,1,2-B,Wooden,GI,PAINTED,Concrete,WOOD,Plywood,Glass,RC,CHB,PAINTED,,,374960
+Property 123,Divisoria,325,144,Residential,1,1-C,Steel,GI,CHB,Tiles,PANEL,Plywood,French Window,CONC.,Plain Cement Paint,CONCEALED,TILES,GI,100000
+Property 124,Divisoria,244,80,Residential,1,,Steel,GI,CHB,Tiles,Flush,Plywood,Jalousie,RC,Plain Cement Paint,Polyflex,TILES,GI,450000
+Property 125,Divisoria,500,71.06,Residential,2,,Steel,GI,CHB,Tiles,PANEL,Plywood,Glass,RC,Plain Cement Paint,PVC,TILES,PVC,359400
+Property 126,Divisoria,212,76,Residential,1,2-A,Steel,GI,CHB,Tiles,PANEL,Plywood,Glass,RC,Plain Cement Paint,PVC,TILES,PVC,500000
+Property 127,San Jose Cawa Cawa,425,73.7,Residential,2,2-A,Steel,Long Span,CHB,Tiles,PANEL,Plywood,Glass,RC,CHB,,,,462520
+Property 128,Canelar,286,145.6,Residential,2,2-A,RC,RC,CHB,Tiles,ROLL UP,Plywood,Glass,RC,Plain Cement Paint,Polyflex,TILES,PVC,580000
+Property 129,San Jose Cawa Cawa,412,265.78,Residential,2,2-B,RC,RC,CHB,Tiles,WOOD,Plywood,Glass,RC,,,,,1120920
+Property 130,San Jose Cawa Cawa,270,111.54,Residential,2,,C-Purlins,GI,CHB,Concrete,ROLL UP,,Jalousie,CONC.,Plain Cement Paint,Polyflex,CHB,GI,255000
+Property 131,PUTIK,,583.5,Residential,2,2-B,Steel,Long Span,CHB,Concrete,ROLL UP,Plywood,Glass,RC,Plain Cement Paint,Polyflex,TILES,GI,2600000
+Property 132,Canelar,328,327,Commercial,2,2-B,Steel,GI,CHB,Concrete,ROLL UP,Plywood,Glass,RC,Cement Plaster,PVC,TILES,PVC,592790
+Property 133,Canelar,263,180,Commercial,1,,Lumber,GI,CHB,Wood,WOOD,Plywood,,CC,Cement Plaster,PVC,,,91650
+Property 134,Canelar,325,216,Commercial,2,2-A,Lumber,GI,CHB,Wood,PANEL,Plywood,Glass,RC,Cement Plaster,,TILES,,684000
+Property 135,Canelar,446,232,Commercial,2,2-B,Steel,GI,CHB,Concrete,Flush,Plywood,Glass,WOODEN,Cement Plaster,Polyflex,TILES,GI,504000
+Property 136,Canelar,2552,2223,Commercial,2,2-A,Steel,GI,CHB,Tiles,GLASS,Plywood,Glass,CONC.,Plain Cement Paint,Polyflex,TILES,GI,14796577
+Property 137,Canelar,328,327,Commercial,2,2-B,Steel,GI,CHB,Concrete,ROLL UP,Plywood,Glass,RC,Cement Plaster,PVC,TILES,PVC,592790
+Property 138,Divisoria,10059,55.49,Commercial,1,2-A,Steel,Long Span,CHB,Tiles,GLASS,,Glass,CC,CHB,PVC,TILES,PVC,487760
+Property 139,Divisoria,10059,451.4,Commercial,2,2-A,Steel,Long Span,CHB,Tiles,,,Glass,RC,CHB,PVC,TILES,PVC,3088810
+Property 140,Divisoria,10059,216,Commercial,1,2-A,Steel,Long Span,,,,,,,,,,,987120
+Property 141,Divisoria,10059,126.48,Commercial,1,2-A,Steel,Long Span,,,,,,,,,,,428770
+Property 142,Divisoria,10059,289.6,Commercial,2,2-A,GI/STEEL,GI,CHB,Tiles,,,,WOODEN,,PVC,TILES,PVC,2193980
+Property 143,San Jose Cawa Cawa,1452,375,Commercial,2,,Steel,GI,CHB,Tiles,GLASS,,,WOODEN,Cement Plaster,BREAKERS,TILES,PVC,1528600
+Property 144,San Jose Cawa Cawa,433,46.22,Commercial,2,2-B,Wooden,GI,CHB,Concrete,PANEL,Plywood,Glass,WOODEN,Cement Plaster,Polyflex,TILES,GI,205000
